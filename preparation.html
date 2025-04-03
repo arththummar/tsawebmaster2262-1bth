@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Green Canvas - Preparation Process">
+  <meta name="description" content="Explore the preparation process at Green Canvas, where fresh ingredients become plant-based perfection.">
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Audrey&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aileron&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" as="image" href="newprep1.jfif">
+  <link rel="preload" as="image" href="prep3.jpg">
+  <link rel="preload" as="image" href="newprep2.jfif">
+  <style>
+    :root {
+      --primary-color: #000000;
+      --secondary-color: hsl(124, 59%, 61%);
+      --accent-color: hsl(124, 59%, 61%);
+      --text-color: black;
+      --background-color: #171616;
+      --shadow-color: rgba(28, 27, 27, 0.1);
+      --gold-crayola: hsl(124, 59%, 61%);
+      --quick-silver: hsla(0, 0%, 65%, 1);
+      --davys-grey: hsla(30, 3%, 34%, 1);
+      --smoky-black-1: hsla(40, 12%, 5%, 1);
+      --smoky-black-2: hsla(30, 8%, 5%, 1);
+      --smoky-black-3: hsla(0, 3%, 7%, 1);
+      --eerie-black-1: hsla(210, 4%, 9%, 1);
+      --eerie-black-2: hsla(210, 4%, 11%, 1);
+      --eerie-black-3: hsla(180, 2%, 8%, 1);
+      --eerie-black-4: hsla(0, 0%, 13%, 1);
+      --white: hsla(0, 0%, 100%, 1);
+      --white-alpha-20: hsla(0, 0%, 100%, 0.2);
+      --white-alpha-10: hsla(0, 0%, 100%, 0.1);
+      --black: hsla(0, 0%, 0%, 1);
+      --black-alpha-80: hsla(0, 0%, 0%, 0.8);
+      --black-alpha-15: hsla(0, 0%, 0%, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    .footer {
+      flex-shrink: 0;
+    }
+
+    .timeline-section {
+      height: auto;
+      padding-bottom: 8vh;
+      background-color: var(--background-color);
+    }
+
+    .timeline-container {
+      width: 90%;
+      max-width: 1200px;
+      padding: 2vw;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .timeline-container h1 {
+      color: var(--secondary-color);
+      text-align: center;
+      margin-bottom: 5vh;
+      font-size: 4vh;
+    }
+
+    .timeline {
+      position: relative;
+      width: 100%;
+      height: 20px;
+      margin-bottom: 6vh;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background-color: var(--primary-color);
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress {
+      height: 100%;
+      background-color: var(--accent-color);
+      width: 0;
+      transition: width 0.4s ease;
+      border-radius: 3px;
+    }
+
+    .nodes {
+      position: absolute;
+      top: -8px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .node {
+      width: clamp(15px, 3vw, 20px);
+      height: clamp(15px, 3vw, 20px);
+      background-color: var(--primary-color);
+      border: 2px solid var(--secondary-color);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .node:hover {
+      background-color: var(--accent-color);
+      transform: scale(1.2);
+    }
+
+    .node.active {
+      background-color: var(--secondary-color);
+      transform: scale(1.2);
+    }
+
+    /* Prep Spotlight Carousel Styles */
+    .prep-spotlight {
+      width: 100%;
+      max-width: 1200px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 8vh;
+    }
+
+    .spotlight-slides {
+      display: flex;
+      width: 100%;
+      height: 500px;
+      transition: transform 0.5s ease;
+    }
+
+    .spotlight-slide {
+      flex: 0 0 100%;
+      position: relative;
+      background-color: var(--eerie-black-2);
+      overflow: hidden;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .spotlight-slide.active {
+      opacity: 1;
+    }
+
+    .spotlight-slide:hover {
+      opacity: 1;
+    }
+
+    .spotlight-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      transition: transform 0.5s ease;
+    }
+
+    .spotlight-slide:hover .spotlight-image {
+      transform: scale(1.1);
+    }
+
+    .spotlight-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    .spotlight-slide:hover .spotlight-overlay {
+      opacity: 1;
+    }
+
+    .spotlight-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold-crayola);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transform: translateY(-20px);
+      opacity: 0;
+      animation: slideInText 0.6s ease forwards;
+    }
+
+    .spotlight-desc {
+      font-size: 1.2rem;
+      color: var(--white);
+      line-height: 1.6;
+      max-width: 600px;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: slideInText 0.6s ease 0.2s forwards;
+    }
+
+    @keyframes slideInText {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .spotlight-nav {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .spotlight-dot {
+      width: 12px;
+      height: 12px;
+      background-color: var(--quick-silver);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .spotlight-dot.active {
+      background-color: var(--gold-crayola);
+      transform: scale(1.3);
+    }
+
+    .spotlight-dot:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* New Flavor Lab Section Styles */
+    .flavor-lab-section {
+      padding: 8vh 0;
+      background: linear-gradient(135deg, var(--eerie-black-1), var(--eerie-black-3));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .flavor-lab-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .flavor-lab-container h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold-crayola);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .flavor-lab-container p {
+      font-size: 1.2rem;
+      color: var(--quick-silver);
+      margin-bottom: 4vh;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .flavor-lab {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px var(--black-alpha-15);
+    }
+
+    .ingredient-pod {
+      width: 150px;
+      height: 200px;
+      background: var(--eerie-black-2);
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .ingredient-pod:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px var(--gold-crayola);
+    }
+
+    .ingredient-pod.active {
+      border: 3px solid var(--gold-crayola);
+    }
+
+    .ingredient-image {
+      width: 100%;
+      height: 60%;
+      object-fit: cover;
+    }
+
+    .ingredient-name {
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .flavor-result {
+      margin-top: 4vh;
+      padding: 2rem;
+      background: var(--eerie-black-2);
+      border-radius: 15px;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .flavor-result.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .flavor-result h3 {
+      font-size: 2rem;
+      color: var(--gold-crayola);
+      margin-bottom: 1rem;
+    }
+
+    .flavor-result p {
+      font-size: 1.1rem;
+      color: var(--white);
+      max-width: 600px;
+    }
+
+    .flavor-burst {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, var(--gold-crayola) 10%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0;
+      pointer-events: none;
+      animation: burst 1s ease forwards;
+    }
+
+    @keyframes burst {
+      0% { transform: scale(0); opacity: 0.8; }
+      50% { transform: scale(1.5); opacity: 0.5; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .timeline-container {
+        width: 95%;
+        padding: 10px;
+      }
+
+      .timeline-container h1 {
+        margin-bottom: 3vh;
+      }
+
+      .timeline {
+        margin-bottom: 4vh;
+      }
+
+      .spotlight-slides {
+        height: 400px;
+      }
+
+      .spotlight-title {
+        font-size: 2rem;
+      }
+
+      .spotlight-desc {
+        font-size: 1rem;
+      }
+
+      .flavor-lab-container h2 {
+        font-size: 2.5rem;
+      }
+
+      .flavor-lab-container p {
+        font-size: 1rem;
+      }
+
+      .ingredient-pod {
+        width: 120px;
+        height: 160px;
+      }
+
+      .ingredient-name {
+        font-size: 0.9rem;
+      }
+
+      .flavor-result h3 {
+        font-size: 1.5rem;
+      }
+
+      .flavor-result p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .node {
+        width: 15px;
+        height: 15px;
+      }
+
+      .progress-bar {
+        height: 4px;
+      }
+
+      .timeline {
+        height: 15px;
+      }
+
+      .nodes {
+        top: -6px;
+      }
+
+      .spotlight-slides {
+        height: 300px;
+      }
+
+      .spotlight-title {
+        font-size: 1.5rem;
+      }
+
+      .spotlight-desc {
+        font-size: 0.9rem;
+      }
+
+      .spotlight-nav {
+        bottom: 10px;
+      }
+
+      .spotlight-dot {
+        width: 10px;
+        height: 10px;
+      }
+
+      .flavor-lab-container h2 {
+        font-size: 2rem;
+      }
+
+      .ingredient-pod {
+        width: 100px;
+        height: 140px;
+      }
+
+      .ingredient-name {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="preload" data-preaload>
+    <div class="circle"></div>
+    <p class="text">The Green Canvas</p>
+  </div>
+
+  <div class="topbar">
+    <div class="container">
+      <address class="topbar-item">
+        <div class="icon">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">Restaurant St, Delicious City, Awesome Town 9578, NJ</span>
+      </address>
+      <div class="separator"></div>
+      <div class="topbar-item item-2">
+        <div class="icon">
+          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">Daily : 10.00 am to 10.00 pm</span>
+      </div>
+      <a href="tel:+11234567890" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">+1 987 765 4321</span>
+      </a>
+      <div class="separator"></div>
+      <a href="mailto:greencanvas@restaurant.com" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">greencanvas@restaurant.com</span>
+      </a>
+    </div>
+  </div>
+
+  <header class="header" data-header>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="logo_final.png" width="150" height="20" alt="Green Canvas - Home">
+      </a>
+      <nav class="navbar" data-navbar>
+        <button class="close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+        <a href="main.html" class="logo">
+          <img src="logo_final.png" width="70" height="50" alt="Grilli - Home">
+        </a>
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="main.html" class="navbar-link hover-underline">
+              <span class="span">Home</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="aboutus.html" class="navbar-link hover-underline">
+              <span class="span">About Us</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="Newmenu1.html#menu" class="navbar-link hover-underline">
+              <span class="span">Menu</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="farmtotable.html" class="navbar-link hover-underline">
+              <span class="span">Farm-to-Table</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="preparation.html" class="navbar-link hover-underline active">
+              <span class="span">Preparation</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="sustainability.html" class="navbar-link hover-underline">
+              <span class="span">Sustainability</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="Contactus.html" class="navbar-link hover-underline">
+              <span class="span">Contact Us</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="references.html" class="navbar-link hover-underline">
+              <span class="span">References</span>
+            </a>
+          </li>
+        </ul>
+        <div class="text-center">
+          <p class="headline-1 navbar-title">Visit Us</p>
+          <address class="body-4">
+            Restaurant St, Delicious City, <br>
+            Awesome Town 9578, NJ
+          </address>
+          <p class="body-4 navbar-text">Open: 10.00 am - 10.00 pm</p>
+          <a href="mailto:booking@thegreencanvas.com" class="body-4 sidebar-link">booking@thegreencanvas.com</a>
+          <div class="separator"></div>
+          <p class="contact-label">Booking Request</p>
+          <a href="tel:+19877654321" class="body-1 contact-number hover-underline">
+            +1 987 765 4321
+          </a>
+        </div>
+      </nav>
+      <a href="#" class="btn btn-secondary">
+        <span class="text text-1">Find A Table</span>
+        <span class="text text-2" aria-hidden="true">Find A Table</span>
+      </a>
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+      <div class="overlay" data-nav-toggler data-overlay></div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <section class="hero text-center" aria-label="home" id="home">
+        <ul class="hero-slider" data-hero-slider>
+          <li class="slider-item active" data-hero-slider-item>
+            <div class="slider-bg">
+              <div class="dark-overlay-image">
+                <img src="prepone.avif" alt="" class="img-cover"/>
+              </div>
+            </div>
+            <p class="label-2 section-subtitle slider-reveal">Our Preparation Processes</p>
+            <h1 class="display-1 hero-title slider-reveal">Preparation</h1>
+            <p class="body-2 hero-text slider-reveal">Creating the Best Food</p>
+            <a href="#timsec" class="btn btn-primary slider-reveal">
+              <span class="text text-1">How We Do It</span>
+              <span class="text text-2" aria-hidden="true">Click Here</span>
+            </a>
+          </li>
+          <li class="slider-item" data-hero-slider-item>
+            <div class="slider-bg">
+              <div class="dark-overlay-image">
+                <img src="brian-j-tromp-ylBoONBtN3s-unsplash.jpg" alt="" class="img-cover"/>
+              </div>
+            </div>
+            <p class="label-2 section-subtitle slider-reveal">Our Preparation Processes</p>
+            <h1 class="display-1 hero-title slider-reveal">Preparation</h1>
+            <p class="body-2 hero-text slider-reveal">Creating the Best Food</p>
+            <a href="#timsec" class="btn btn-primary slider-reveal">
+              <span class="text text-1">How We Do It</span>
+              <span class="text text-2" aria-hidden="true">Click Here</span>
+            </a>
+          </li>
+          <li class="slider-item" data-hero-slider-item>
+            <div class="slider-bg">
+              <div class="dark-overlay-image">
+                <img src="prep3.jpg" alt="" class="img-cover"/>
+              </div>
+            </div>
+            <p class="label-2 section-subtitle slider-reveal">Our Preparation Processes</p>
+            <h1 class="display-1 hero-title slider-reveal">Preparation</h1>
+            <p class="body-2 hero-text slider-reveal">Creating the Best Food</p>
+            <a href="#timsec" class="btn btn-primary slider-reveal">
+              <span class="text text-1">How We Do It</span>
+              <span class="text text-2" aria-hidden="true">Click Here</span>
+            </a>
+          </li>
+        </ul>
+        <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
+          <ion-icon name="chevron-back"></ion-icon>
+        </button>
+        <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </button>
+      </section>
+
+      <section class="timeline-section" id="timsec">
+        <div class="timeline-container">
+          <h1 id="preptit">Our Preparation Process</h1>
+          <div class="intro-text" style="
+            max-width: 800px;
+            margin: 0 auto 6vh auto;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: var(--white);
+            padding: clamp(15px, 2vw, 25px);
+            background: linear-gradient(135deg, rgba(23, 22, 22, 0.95), rgba(40, 40, 40, 0.85));
+            border-radius: 12px;
+            box-shadow: 0 6px 12px var(--shadow-color);
+          ">
+            <p style="
+              font-size: clamp(1rem, 2.5vw, 1.25rem);
+              font-weight: 700;
+              line-height: 1.6;
+              margin-bottom: 1rem;
+            ">
+              Discover the artistry behind every dish at The Green Canvas. From farm-fresh ingredients to masterful plating, our process is a journey of flavor and sustainability.
+            </p>
+            <p style="
+              font-size: clamp(0.9rem, 2vw, 1rem);
+              font-weight: 400;
+              color: var(--gold-crayola);
+            ">
+              Click the timeline or dots below to spotlight each step of our eco-friendly preparation.
+            </p>
+            <div style="
+              width: 60px;
+              height: 2px;
+              background-color: var(--secondary-color);
+              margin: 1.5rem auto 0;
+              border-radius: 2px;
+            "></div>
+          </div>
+          <div class="timeline">
+            <div class="progress-bar">
+              <div class="progress" id="progress"></div>
+            </div>
+            <div class="nodes">
+              <div class="node" data-index="0"></div>
+              <div class="node" data-index="1"></div>
+              <div class="node" data-index="2"></div>
+              <div class="node" data-index="3"></div>
+              <div class="node" data-index="4"></div>
+              <div class="node" data-index="5"></div>
+            </div>
+          </div>
+
+          <div class="prep-spotlight">
+            <div class="spotlight-slides" id="spotlightSlides">
+              <div class="spotlight-slide" data-index="0">
+                <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=1200&auto=format&fit=crop&q=80" alt="Harvesting" class="spotlight-image">
+                <div class="spotlight-overlay">
+                  <h3 class="spotlight-title">Fresh Harvest</h3>
+                  <p class="spotlight-desc">We scour local farms for the ripest veggies and fruits, hand-picked to lock in that farm-to-fork freshness.</p>
+                </div>
+              </div>
+              <div class="spotlight-slide" data-index="1">
+                <img src="https://images.unsplash.com/photo-1669909593266-3fc8ff399fde?w=1200&auto=format&fit=crop&q=80" alt="Cleaning" class="spotlight-image">
+                <div class="spotlight-overlay">
+                  <h3 class="spotlight-title">Pure Cleanse</h3>
+                  <p class="spotlight-desc">Every leaf and root gets a deep cleanse, stripping away impurities while keeping the good stuff intact.</p>
+                </div>
+              </div>
+              <div class="spotlight-slide" data-index="2">
+                <img src="https://images.pexels.com/photos/9986228/pexels-photo-9986228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Chopping" class="spotlight-image">
+                <div class="spotlight-overlay">
+                  <h3 class="spotlight-title">Precision Cuts</h3>
+                  <p class="spotlight-desc">Our chefs wield blades like artists, slicing with precision to ensure every bite cooks and looks just right.</p>
+                </div>
+              </div>
+              <div class="spotlight-slide" data-index="3">
+                <img src="https://images.pexels.com/photos/28645472/pexels-photo-28645472/free-photo-of-preparing-homemade-pickled-vegetables-in-jar.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Marinating" class="spotlight-image">
+                <div class="spotlight-overlay">
+                  <h3 class="spotlight-title">Flavor Infusion</h3>
+                  <p class="spotlight-desc">We soak our ingredients in bold marinades, letting spices and herbs weave magic into every fiber.</p>
+                </div>
+              </div>
+              <div class="spotlight-slide" data-index="4">
+                <img src="https://plus.unsplash.com/premium_photo-1687697861242-03e99059e833?w=1200&auto=format&fit=crop&q=80" alt="Cooking" class="spotlight-image">
+                <div class="spotlight-overlay">
+                  <h3 class="spotlight-title">Artful Cooking</h3>
+                  <p class="spotlight-desc">From sizzling pans to gentle steams, we cook with eco-smart methods to amplify taste and nutrition.</p>
+                </div>
+              </div>
+              <div class="spotlight-slide" data-index="5">
+                <img src="https://cdn.shopify.com/s/files/1/0586/2193/files/plating_mobile.png?v=1679254227&quality=lossless" alt="Plating" class="spotlight-image">
+                <div class="spotlight-overlay">
+                  <h3 class="spotlight-title">Masterful Plating</h3>
+                  <p class="spotlight-desc">We craft each plate like a canvas, blending colors and textures into a feast for your eyes and soul.</p>
+                </div>
+              </div>
+            </div>
+            <div class="spotlight-nav" id="spotlightNav">
+              <div class="spotlight-dot" data-index="0"></div>
+              <div class="spotlight-dot" data-index="1"></div>
+              <div class="spotlight-dot" data-index="2"></div>
+              <div class="spotlight-dot" data-index="3"></div>
+              <div class="spotlight-dot" data-index="4"></div>
+              <div class="spotlight-dot" data-index="5"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- New Flavor Lab Section -->
+      <section class="flavor-lab-section">
+        <div class="flavor-lab-container">
+          <h2>Flavor Lab</h2>
+          <p>Mix and match our signature ingredients to see how we craft unforgettable plant-based flavors. Click the pods below to experiment!</p>
+          <div class="flavor-lab" id="flavorLab">
+            <div class="ingredient-pod" data-flavor="Tomato">
+              <img src="leilani-angel-d2aZ2MJBSeU-unsplash.jpg" alt="Tomato" class="ingredient-image">
+              <div class="ingredient-name">Heirloom Tomato</div>
+            </div>
+            <div class="ingredient-pod" data-flavor="Basil">
+              <img src="monika-grabkowska-rICRgergpIc-unsplash.jpg" alt="Basil" class="ingredient-image">
+              <div class="ingredient-name">Fresh Basil</div>
+            </div>
+            <div class="ingredient-pod" data-flavor="Mushroom">
+              <img src="jay-alexander-kd86pbIR8y4-unsplash.jpg" alt="Mushroom" class="ingredient-image">
+              <div class="ingredient-name">Wild Mushroom</div>
+            </div>
+            <div class="ingredient-pod" data-flavor="Lemon">
+              <img src="mockup-graphics-enNffryKuQI-unsplash.jpg" alt="Lemon" class="ingredient-image">
+              <div class="ingredient-name">Zesty Lemon</div>
+            </div>
+            <div class="ingredient-pod" data-flavor="Garlic">
+              <img src="gaelle-marcel-qOwyDpkhaCI-unsplash.jpg" alt="Garlic" class="ingredient-image">
+              <div class="ingredient-name">Roasted Garlic</div>
+            </div>
+          </div>
+          <div class="flavor-result" id="flavorResult">
+            <h3 id="flavorTitle">Mix Your Magic</h3>
+            <p id="flavorDesc">Select at least two ingredients to unlock a flavor profile inspired by our kitchen!</p>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <footer class="footer section has-bg-image text-center" style="background-image: url('footer-bg.jpg')">
+    <div class="container">
+      <div class="footer-top grid-list">
+        <div class="footer-brand has-before has-after">
+          <address class="body-4">
+            Restaurant St, Delicious City, Awesome Town 9578, NJ
+          </address>
+          <a href="mailto:booking@grilli.com" class="body-4 contact-link">booking@thegreencanvas.com</a>
+          <a href="tel:+88123123456" class="body-4 contact-link">Booking Request : +1 987 765 4321</a>
+          <p class="body-4">
+            Open : 10:00 am - 10:00 pm
+          </p>
+          <p class="title-1">Get News & Offers</p>
+          <p class="label-1">
+            Subscribe us & Get <span class="span">25% Off.</span>
+          </p>
+          <form action="" class="input-wrapper">
+            <div class="icon-wrapper">
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+              <input type="email" name="email_address" placeholder="Your email" autocomplete="off" class="input-field">
+            </div>
+            <button type="submit" class="btn btn-secondary">
+              <span class="text text-1">Subscribe</span>
+              <span class="text text-2" aria-hidden="true">Subscribe</span>
+            </button>
+          </form>
+        </div>
+        <ul class="footer-list">
+          <li>
+            <a href="main.html" class="label-2 footer-link hover-underline">Home</a>
+          </li>
+          <li>
+            <a href="aboutus.html" class="label-2 footer-link hover-underline">About Us</a>
+          </li>
+          <li>
+            <a href="Newmenu1.html#menu" class="label-2 footer-link hover-underline">Menu</a>
+          </li>
+          <li>
+            <a href="preparation.html" class="label-2 footer-link hover-underline">Preparation</a>
+          </li>
+          <li>
+            <a href="sustainability.html" class="label-2 footer-link hover-underline">Sustainability</a>
+          </li>
+          <li>
+            <a href="farmtotable.html" class="label-2 footer-link hover-underline">Farm-to-Table</a>
+          </li>
+          <li>
+            <a href="Contactus.html" class="label-2 footer-link hover-underline">Contact Us</a>
+          </li>
+          <li>
+              <a href="references.html" class="label-2 footer-link hover-underline">References</a>
+            </li>
+        </ul>
+        <ul class="footer-list">
+          <li>
+            <a href="https://www.facebook.com" class="label-2 footer-link hover-underline" target="_blank">Facebook</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com" class="label-2 footer-link hover-underline" target="_blank">Instagram</a>
+          </li>
+          <li>
+            <a href="https://twitter.com" class="label-2 footer-link hover-underline" target="_blank">X (Twitter)</a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com" class="label-2 footer-link hover-underline" target="_blank">Youtube</a>
+          </li>
+          <li>
+            <a href="https://www.google.com/maps" class="label-2 footer-link hover-underline" target="_blank">Google Map</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">
+          © The Green Canvas All Rights Reserved
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+
+    
+const menu = {
+    appetizers: [
+      {
+        name: "Fiery Buffalo Bites",
+        image: "https://www.eatingwell.com/thmb/fDNIDYGieZ1jPJILCL52GxKP_hM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sriracha-buffalo-cauliflower-bites-step-10-fce96233bae04d96a461657352d00fcc.jpg",
+        description: "Crispy cauliflower florets tossed in a spicy buffalo sauce, served with creamy ranch dressing.",
+        price: "$8.99",
+        calories: 250,
+        isVegan: true
+      },
+      {
+        name: "Nacho Grande Explosion",
+        image: "https://img.freepik.com/premium-photo/fiesta-flavor-explosion-nachos-with-zesty-salsa_1106454-42100.jpg",
+        description: "A mountain of tortilla chips piled high with seasoning, melted cheese, black beans, jalapeños, and all the fixings.",
+        price: "$10.99",
+        calories: 650,
+        isVegan: false
+      },
+      {
+        name: "Spinach & Artichoke Dip Trio",
+        image: "https://media.olivegarden.com/en_us/images/product/Spinach-Artichoke-Dip-dpv-1180x730.jpg",
+        description: "Creamy spinach and artichoke dip served with toasted pita bread, crostini, and fresh vegetables.",
+        price: "$9.99",
+        calories: 400,
+        isVegan: false
+      },
+      {
+        name: "Guac & Chips Fiesta",
+        image: "https://cdn11.bigcommerce.com/s-5ljyj9oebs/images/stencil/2560w/products/9445/26850/P111023185929_1__47634.1707145448.jpg?c=2",
+        description: "Fresh guacamole served with crispy tortilla chips and a side of salsa.",
+        price: "$7.99",
+        calories: 200,
+        isVegan: true
+      },
+      {
+        name: "Mozzarella Sticks with Marinara",
+        image: "https://sp-ao.shortpixel.ai/client/q_glossy,ret_img,w_700,h_467/https://thefoodcafe.com/wp-content/uploads/2018/04/Mozzarella-Sticks-5-700x467.jpg",
+        description: "Crispy golden mozzarella sticks served with a tangy marinara sauce.",
+        price: "$8.99",
+        calories: 450,
+        isVegan: false
+      }
+    ],
+    mainCourses: [
+      {
+        name: "Beyond Burgers with Sweet Potato Smiles",
+        image: "https://www.besthealthmag.ca/wp-content/uploads/sites/16/2009/11/turkey_burger_sweet_potato_fries.jpg",
+        description: "Plant-based burgers served on toasted buns with all the fixings and a side of crispy sweet potato fries.",
+        price: "$14.99",
+        calories: 600,
+        isVegan: true
+      },
+      {
+        name: "Grilled Cheese Grandeur with Creamy Tomato Soup",
+        image: "https://s.yimg.com/ny/api/res/1.2/bbl7lSMQdSMi9UivkOrYYA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD02OTc-/https://media.zenfs.com/en/tasting_table_543/d40ca8f5a95ef856ef1789f275dab1ca",
+        description: "A classic grilled cheese sandwich with melted cheddar and provolone, served with a bowl of creamy tomato soup.",
+        price: "$12.99",
+        calories: 700,
+        isVegan: false
+      },
+      {
+        name: "Stir-Fried Rice Noodle Symphony",
+        image: "https://img.freepik.com/premium-photo/symphony-stirfried-rice-noodles-infused-with-authentic-thai-flavors_1012729-21269.jpg?w=2000",
+        description: "A flavorful stir-fry of rice noodles with tofu, vegetables, and a savory sauce.",
+        price: "$13.99",
+        calories: 450,
+        isVegan: true
+      },
+      {
+        name: "Three Cheese Mac & Cheese Dream",
+        image: "https://data.thefeedfeed.com/recommended/post_5595575.jpeg",
+        description: "A creamy and cheesy macaroni and cheese dish with a blend of cheddar, mozzarella, and Parmesan.",
+        price: "$11.99",
+        calories: 750,
+        isVegan: false
+      },
+      {
+        name: "Chickpea Curry with Basmati Rice",
+        image: "https://i.pinimg.com/originals/3c/fc/92/3cfc9241e9e64f0d1aab975dbcf1eb4a.jpg",
+        description: "A flavorful and aromatic chickpea curry served with fluffy basmati rice.",
+        price: "$14.99",
+        calories: 550,
+        isVegan: true
+      },
+      {
+        name: "Eggplant Parmesan Paradise",
+        image: "https://www.vincenzosplate.com/wp-content/uploads/2015/03/eggplant-parmigiana.png",
+        description: "Crispy eggplant layered with marinara sauce, mozzarella, and Parmesan cheese, served over a bed of spaghetti.",
+        price: "$13.99",
+        calories: 650,
+        isVegan: true
+      },
+      {
+        name: "Black Bean Taco Fiesta",
+        image: "https://plantbasedjess.com/wp-content/uploads/2024/11/IMG_1737.jpg",
+        description: "Two soft tacos filled with seasoned black beans, sweet potatoes, and all your favorite taco toppings.",
+        price: "$10.99",
+        calories: 400,
+        isVegan: true
+      },
+      {
+        name: "Mushroom & Spinach Quesadilla Supreme",
+        image: "https://www.budgetbytes.com/wp-content/uploads/2022/02/Spinach-and-Mushroom-Quesadillas-stack-800x600.jpg",
+        description: "A cheesy quesadilla filled with sautéed mushrooms, spinach, and melted cheese.",
+        price: "$11.99",
+        calories: 500,
+        isVegan: true
+      },
+      {
+        name: "Teriyaki Buddha Bowl",
+        image: "https://theethicalist.com/wp-content/uploads/2023/08/watercress-smoked-soy-spicy-rice-roast-veg-landscape2-1024x683.jpg",
+        description: "A healthy and flavorful bowl filled with brown rice, grilled tofu, roasted vegetables, and a teriyaki glaze.",
+        price: "$14.99",
+        calories: 550,
+        isVegan: true
+      },
+      {
+        name: "Four Cheese Pizza Perfection",
+        image: "https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/four_cheese_pizzas_11912_16x9.jpg",
+        description: "A classic pizza topped with four types of cheese and fresh basil.",
+        price: "$16.99",
+        calories: 900,
+        isVegan: false
+      }
+    ],
+    saladsAndBowls: [
+      {
+        name: "Mediterranean Quinoa Delight",
+        image: "https://www.nourish-and-fete.com/wp-content/uploads/2020/04/everyday-italian-salad-landscape-1360px-2-680x454.jpg",
+        description: "A refreshing salad with quinoa, chickpeas, feta cheese, olives, tomatoes, cucumbers, and a lemon vinaigrette.",
+        price: "$12.99",
+        calories: 350,
+        isVegan: true
+      },
+      {
+        name: "Classic Caesar Salad with Crispy Croutons",
+        image: "https://media.istockphoto.com/id/1338803225/photo/chicken-caesar-salad-with-the-classic-dressing-being-poured-and-croutons.jpg?s=612x612&w=0&k=20&c=jsdViHtvGRhmOqlnMn0aTuPc8jZR2sGA_T8Rla9MQ_0=",
+        description: "Crisp romaine lettuce tossed with Caesar dressing, croutons, tomatoes, onions, olives, and Parmesan cheese.",
+        price: "$9.99",
+        calories: 400,
+        isVegan: false
+      },
+      {
+        name: "Kale & Apple Symphony Salad",
+        image: "https://static01.nyt.com/images/2018/10/30/dining/apple-cheddar-kale-salad/merlin_145792368_0de6b697-1f58-47a9-a046-901c388cec32-superJumbo.jpg",
+        description: "A vibrant salad with kale, apples, walnuts, and a light vinaigrette.",
+        price: "$11.99",
+        calories: 300,
+        isVegan: true
+      },
+      {
+        name: "Southwest Taco Salad Sensation",
+        image: "https://www.litehousefoods.com/wp-content/uploads/2022/08/Litehouse-Taco-Salad-with-Southwest-Ranch-17-blog-aspect-ratio-1178-786.jpg",
+        description: "A flavorful salad with black beans, corn, tomatoes, and all your favorite taco toppings.",
+        price: "$10.99",
+        calories: 500,
+        isVegan: false
+      },
+      {
+        name: "Classic Greek Salad Harmony",
+        image: "https://images.pexels.com/photos/1213710/pexels-photo-1213710.jpeg?auto=compress&cs=tinysrgb&w=600",
+        description: "Crisp cucumbers, juicy tomatoes, and red onions harmonized with Kalamata olives and feta cheese, finished with a zesty oregano vinaigrette.",
+        price: "$11.99",
+        calories: 320,
+        isVegan: false
+      }
+    ],
+    desserts: [
+      {
+        name: "New York Style Cheesecake Classic",
+        image: "https://www.southernliving.com/thmb/MbY24TvKW-HxQc5guW1Uzr1n2QI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Strawberry-Cheesecake_step_Batch60-40-69ae195866a541ad9897fa64345eefaa.jpg",
+        description: "A rich and creamy cheesecake with a graham cracker crust.",
+        price: "$7.99",
+        calories: 700,
+        isVegan: false
+      },
+      {
+        name: "Chocolate Brownie Bliss with Ice Cream",
+        image: "https://img.freepik.com/premium-photo/hot-chocolate-brownie-bliss-with-ice-cream-ball_875825-5394.jpg",
+        description: "Decadent chocolate brownies served warm with a scoop of vanilla ice cream.",
+        price: "$8.99",
+        calories: 800,
+        isVegan: false
+      },
+      {
+        name: "Dark Chocolate Coconut Cloud",
+        image: "https://meaningfuleats.com/wp-content/uploads/2016/11/IMG_4990-1.jpg",
+        description: "A light and refreshing dessert with dark chocolate, coconut, and a touch of sweetness.",
+        price: "$6.99",
+        calories: 350,
+        isVegan: true
+      },
+      {
+        name: "Warm Apple Crisp with Vanilla Ice Cream Swirl",
+        image: "https://images.stockcake.com/public/2/1/a/21a03f81-3d57-4a74-8b2f-9e5b47859c4b_large/apple-crumble-treat-stockcake.jpg",
+        description: "A classic apple crisp topped with a generous scoop of vanilla ice cream.",
+        price: "$8.99",
+        calories: 750,
+        isVegan: false
+      },
+      {
+        name: "Tropical Banana & Berry Smoothie Bowl",
+        image: "https://hips.hearstapps.com/hmg-prod/images/190514-acai-bowl-128-1559077269.jpg?crop=1xw:0.8435280189423836xh;center,top&resize=1200:*",
+        description: "A healthy and refreshing smoothie bowl with bananas, berries, and other tropical fruits.",
+        price: "$7.99",
+        calories: 400,
+        isVegan: true
+      },
+      {
+        name: "Carrot Cake with Cream Cheese Frosting",
+        image: "https://img.freepik.com/premium-photo/amazing-vegan-walnuts-carrot-cake-with-cashew-cream-frosting_952778-19523.jpg",
+        description: "A flavorful carrot cake topped with a creamy cream cheese frosting.",
+        price: "$7.99",
+        calories: 600,
+        isVegan: false
+      }
+    ]
+  };
+
+  // Timeline and Spotlight Carousel
+  const timelineData = [
+    {
+      image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=1200&auto=format&fit=crop&q=80",
+      text: "Step 1: Getting Fresh Ingredients: We source the finest, locally grown vegetables, fruits, and plant-based proteins to ensure top-quality, fresh dishes."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1669909593266-3fc8ff399fde?w=1200&auto=format&fit=crop&q=80",
+      text: "Step 2: Preparing and Cleaning: We thoroughly wash and peel our ingredients, ensuring they’re free from dirt and pesticides for pure, clean flavors."
+    },
+    {
+      image: "https://images.pexels.com/photos/9986228/pexels-photo-9986228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      text: "Step 3: Chopping and Slicing: We chop and slice our ingredients with precision, ensuring even cooking and a beautiful, consistent presentation."
+    },
+    {
+      image: "https://images.pexels.com/photos/28645472/pexels-photo-28645472/free-photo-of-preparing-homemade-pickled-vegetables-in-jar.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      text: "Step 4: Marinating and Seasoning: We marinate and season our ingredients carefully, allowing flavors to meld and elevate the natural tastes of each dish."
+    },
+    {
+      image: "https://plus.unsplash.com/premium_photo-1687697861242-03e99059e833?w=1200&auto=format&fit=crop&q=80",
+      text: "Step 5: Cooking with Care: We use expert techniques like roasting, steaming, and sautéing to preserve nutrients and achieve perfect textures."
+    },
+    {
+      image: "https://cdn.shopify.com/s/files/1/0586/2193/files/plating_mobile.png?v=1679254227&quality=lossless",
+      text: "Step 6: Plating Creatively: We arrange each dish with creativity, balancing colors, textures, and portions to create an elegant and inviting plate"
+    }
+  ];
+
+  const nodes = document.querySelectorAll('.node');
+  const progress = document.getElementById('progress');
+  const slides = document.getElementById('spotlightSlides');
+  const spotlightSlides = document.querySelectorAll('.spotlight-slide');
+  const dots = document.querySelectorAll('.spotlight-dot');
+
+  function updateTimeline(index) {
+    const progressWidth = (index / (timelineData.length - 1)) * 100;
+    progress.style.width = `${progressWidth}%`;
+    nodes.forEach(node => node.classList.remove('active'));
+    nodes[index].classList.add('active');
+    spotlightSlides.forEach(slide => slide.classList.remove('active'));
+    spotlightSlides[index].classList.add('active');
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+
+  nodes.forEach((node, index) => {
+    node.addEventListener('click', () => updateTimeline(index));
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => updateTimeline(index));
+  });
+
+  updateTimeline(0);
+
+  // Flavor Lab
+  const flavorPods = document.querySelectorAll('.ingredient-pod');
+  const flavorResult = document.getElementById('flavorResult');
+  const flavorTitle = document.getElementById('flavorTitle');
+  const flavorDesc = document.getElementById('flavorDesc');
+  const flavorLab = document.getElementById('flavorLab');
+
+  // Function to randomly select 2 dishes from an array
+  function getRandomDishes(dishArray, count = 2) {
+    const shuffled = [...dishArray].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  }
+
+  const flavorCombos = {
+    "Tomato,Basil": {
+      title: "Tomato Basil Bliss",
+      desc: "A classic combo that sings with bright, herbaceous notes—perfect for a light, summery dish.",
+      matchingDishes: [
+        menu.appetizers.find(dish => dish.name === "Guac & Chips Fiesta"), // Tomato in salsa
+        menu.mainCourses.find(dish => dish.name === "Grilled Cheese Grandeur with Creamy Tomato Soup"), // Tomato soup
+        menu.mainCourses.find(dish => dish.name === "Eggplant Parmesan Paradise"), // Tomato in marinara
+        menu.mainCourses.find(dish => dish.name === "Four Cheese Pizza Perfection"), // Basil topping
+        menu.saladsAndBowls.find(dish => dish.name === "Mediterranean Quinoa Delight"), // Tomato in salad
+        menu.saladsAndBowls.find(dish => dish.name === "Classic Greek Salad Harmony") // Tomato in salad
+      ]
+    },
+    "Tomato,Mushroom": {
+      title: "Earthy Tomato Stew",
+      desc: "Rich and umami-packed, this mix brings depth to hearty vegan creations.",
+      matchingDishes: [
+        menu.mainCourses.find(dish => dish.name === "Mushroom & Spinach Quesadilla Supreme"), // Mushroom focus
+        menu.mainCourses.find(dish => dish.name === "Eggplant Parmesan Paradise"), // Tomato in marinara
+        menu.mainCourses.find(dish => dish.name === "Stir-Fried Rice Noodle Symphony"), // Mushrooms in stir-fry
+        menu.mainCourses.find(dish => dish.name === "Grilled Cheese Grandeur with Creamy Tomato Soup"), // Tomato soup
+        menu.saladsAndBowls.find(dish => dish.name === "Mediterranean Quinoa Delight") // Tomato in salad
+      ]
+    },
+    "Basil,Lemon": {
+      title: "Citrus Basil Zest",
+      desc: "A refreshing burst of green and tangy vibes, ideal for dressings or infusions.",
+      matchingDishes: [
+        menu.mainCourses.find(dish => dish.name === "Four Cheese Pizza Perfection"), // Basil topping
+        menu.mainCourses.find(dish => dish.name === "Teriyaki Buddha Bowl"), // Light, fresh flavors
+        menu.saladsAndBowls.find(dish => dish.name === "Mediterranean Quinoa Delight"), // Lemon vinaigrette
+        menu.saladsAndBowls.find(dish => dish.name === "Kale & Apple Symphony Salad"), // Light vinaigrette
+        menu.saladsAndBowls.find(dish => dish.name === "Classic Greek Salad Harmony") // Zesty dressing
+      ]
+    },
+    "Mushroom,Garlic": {
+      title: "Garlic Mushroom Magic",
+      desc: "Savory and bold, this duo elevates any dish with robust, earthy tones.",
+      matchingDishes: [
+        menu.mainCourses.find(dish => dish.name === "Mushroom & Spinach Quesadilla Supreme"), // Mushroom focus
+        menu.mainCourses.find(dish => dish.name === "Stir-Fried Rice Noodle Symphony"), // Garlic in sauce
+        menu.mainCourses.find(dish => dish.name === "Chickpea Curry with Basmati Rice"), // Garlic in curry
+        menu.mainCourses.find(dish => dish.name === "Teriyaki Buddha Bowl"), // Savory roasted veggies
+        menu.mainCourses.find(dish => dish.name === "Eggplant Parmesan Paradise") // Garlic in marinara
+      ]
+    },
+    "Lemon,Garlic": {
+      title: "Lemon Garlic Glow",
+      desc: "Sharp and aromatic, a zesty kick that brightens up your plate.",
+      matchingDishes: [
+        menu.mainCourses.find(dish => dish.name === "Chickpea Curry with Basmati Rice"), // Garlic in curry
+        menu.mainCourses.find(dish => dish.name === "Stir-Fried Rice Noodle Symphony"), // Garlic in sauce
+        menu.saladsAndBowls.find(dish => dish.name === "Mediterranean Quinoa Delight"), // Lemon vinaigrette
+        menu.saladsAndBowls.find(dish => dish.name === "Classic Greek Salad Harmony"), // Zesty dressing
+        menu.mainCourses.find(dish => dish.name === "Teriyaki Buddha Bowl") // Light, tangy glaze
+      ]
+    }
+  };
+
+  let selectedFlavors = [];
+
+  flavorPods.forEach(pod => {
+    pod.addEventListener('click', (e) => {
+      const flavor = pod.dataset.flavor;
+      const isSelected = pod.classList.contains('active');
+
+      if (isSelected) {
+        pod.classList.remove('active');
+        selectedFlavors = selectedFlavors.filter(f => f !== flavor);
+      } else {
+        pod.classList.add('active');
+        selectedFlavors.push(flavor);
+        const burst = document.createElement('div');
+        burst.classList.add('flavor-burst');
+        burst.style.left = `${e.clientX - 100}px`;
+        burst.style.top = `${e.clientY - 100}px`;
+        flavorLab.appendChild(burst);
+        setTimeout(() => burst.remove(), 1000);
+      }
+
+      updateFlavorResult();
+    });
+  });
+
+  function updateFlavorResult() {
+    flavorResult.classList.remove('active');
+    setTimeout(() => {
+      if (selectedFlavors.length < 2) {
+        flavorTitle.textContent = "Mix Your Magic";
+        flavorDesc.textContent = "Select at least two ingredients to unlock a flavor profile inspired by our kitchen!";
+      } else {
+        const comboKey = selectedFlavors.sort().join(",");
+        const combo = flavorCombos[comboKey] || {
+          title: "Custom Creation",
+          desc: `A unique blend of ${selectedFlavors.join(" and ")}—bold, experimental, and totally Green Canvas style!`,
+          matchingDishes: [
+            menu.mainCourses.find(dish => dish.name === "Stir-Fried Rice Noodle Symphony"),
+            menu.mainCourses.find(dish => dish.name === "Teriyaki Buddha Bowl"),
+            menu.mainCourses.find(dish => dish.name === "Chickpea Curry with Basmati Rice"),
+            menu.saladsAndBowls.find(dish => dish.name === "Mediterranean Quinoa Delight")
+          ]
+        };
+        flavorTitle.textContent = combo.title;
+        const suggestedDishes = getRandomDishes(combo.matchingDishes, 2);
+        flavorDesc.innerHTML = `${combo.desc}<br><br><strong>Try these dishes from our menu:</strong><br>1. ${suggestedDishes[0].name} - ${suggestedDishes[0].description}<br>2. ${suggestedDishes[1].name} - ${suggestedDishes[1].description}`;
+      }
+      flavorResult.classList.add('active');
+    }, 300);
+  }
+    
+  
+  </script>
+</body>
+</html>

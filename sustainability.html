@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+ 
+  <meta name="title" content="Grilli - Amazing & Delicious Food">
+  <meta name="description" content="This is a Restaurant html template made by codewithsadee">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Audrey&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aileron&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="hero-slider-1.jpg">
+  <link rel="preload" as="image" href="hero-slider-2.jpg">
+  <link rel="preload" as="image" href="hero-slider-3.jpg">
+
+  <style>
+    /* Carousel Styles */
+input[type=radio] {
+  display: none;
+}
+
+.card {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  margin: auto;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+  left: 20%; /* Center card in its container */
+}
+
+.container1 {
+  width: 100%;
+  height: 400px;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+  max-width: 500px; /* Reduced from 650px to confine to right side */
+  position: relative;
+}
+
+.container1 h2 {
+  color: #468551;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+.cards {
+  position: relative;
+  width: 100%;
+  height: 95%;
+  margin-top: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+#item-1:checked ~ .cards #sustain-3, #item-2:checked ~ .cards #sustain-1, #item-3:checked ~ .cards #sustain-2 {
+  transform: translatex(-70%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #sustain-2, #item-2:checked ~ .cards #sustain-3, #item-3:checked ~ .cards #sustain-1 {
+  transform: translatex(70%) scale(0.8);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+#item-1:checked ~ .cards #sustain-1, #item-2:checked ~ .cards #sustain-2, #item-3:checked ~ .cards #sustain-3 {
+  transform: translatex(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+#item-1:checked ~ .cards #sustain-1 img, #item-2:checked ~ .cards #sustain-2 img, #item-3:checked ~ .cards #sustain-3 img {
+  box-shadow: 0px 0px 5px 0px rgba(15, 151, 0, 0.637);
+}
+
+/* Card titles */
+.card-info {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  padding: 15px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: white;
+  text-align: center;
+}
+
+/* Sustainability Info Sections */
+.sustainability-section {
+  display: flex;
+  margin: 50px 0;
+  padding: 30px;
+  background-color: rgba(70, 133, 81, 0.1);
+  border-radius: 10px;
+  align-items: center;
+}
+
+.sustainability-section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.sustainability-content {
+  flex: 1;
+  padding: 0 30px;
+}
+
+.sustainability-image {
+  flex: 1;
+  max-width: 500px;
+}
+
+.sustainability-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sustainability-title {
+  color: #468551;
+  margin-bottom: 20px;
+}
+
+.hero-banner {
+  background-image: url('sustainability-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+/* Certifications section */
+.certifications {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.certifications-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.certification-item {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 200px;
+}
+
+.certification-item img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+#picone {
+  margin: auto;
+}
+
+/* Sustainability intro container */
+.sustainability-intro-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px; /* Increased gap between text and carousel */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.about-content {
+  flex: 1.2; /* Give text more space */
+  text-align: left;
+  max-width: 550px; /* Slightly wider text area */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .sustainability-intro-container {
+    gap: 30px;
+  }
+  
+  .about-content {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .container1 {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sustainability-intro-container {
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+  
+  .about-content {
+    text-align: center;
+    max-width: 600px; /* Wider on tablet */
+  }
+  
+  .container1 {
+    width: 100%;
+    max-width: 500px; /* Keep carousel contained */
+  }
+  
+  /* Adjust card transforms for smaller screens */
+  #item-1:checked ~ .cards #sustain-3, #item-2:checked ~ .cards #sustain-1, #item-3:checked ~ .cards #sustain-2 {
+    transform: translatex(-70%) scale(0.7);
+  }
+  
+  #item-1:checked ~ .cards #sustain-2, #item-2:checked ~ .cards #sustain-3, #item-3:checked ~ .cards #sustain-1 {
+    transform: translatex(70%) scale(0.7);
+  }
+  
+  /* Make sustainability sections stack on smaller screens */
+  .sustainability-section,
+  .sustainability-section:nth-child(even) {
+    flex-direction: column;
+  }
+  
+  .sustainability-content,
+  .sustainability-image {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Adjust certifications grid */
+  .certifications-grid {
+    flex-wrap: wrap;
+  }
+  
+  .certification-item {
+    flex-basis: calc(50% - 30px);
+  }
+}
+
+@media (max-width: 768px) {
+  .container1 {
+    max-width: 400px;
+  }
+  
+  .card {
+    width: 70%;
+    left: 15%;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 576px) {
+  .container1 {
+    max-width: 100%;
+    height: 350px; /* Slightly shorter on mobile */
+  }
+
+  
+  .card {
+    width: 80%;
+    left: 10%;
+  }
+  
+  /* Further reduce the transform distance */
+  #item-1:checked ~ .cards #sustain-3, #item-2:checked ~ .cards #sustain-1, #item-3:checked ~ .cards #sustain-2 {
+    transform: translatex(-60%) scale(0.6);
+  }
+  
+  #item-1:checked ~ .cards #sustain-2, #item-2:checked ~ .cards #sustain-3, #item-3:checked ~ .cards #sustain-1 {
+    transform: translatex(60%) scale(0.6);
+  }
+  
+  /* Single column for certification items */
+  .certification-item {
+    flex-basis: 100%;
+  }
+}
+
+
+  </style>
+
+</head>
+<body id="top">
+
+    <!-- 
+      - #PRELOADER
+    -->
+  
+    <div class="preload" data-preaload>
+      <div class="circle"></div>
+      <p class="text">Grilli</p>
+    </div>
+  
+  
+  
+  
+  
+    <!-- 
+      - #TOP BAR
+    -->
+  
+    <div class="topbar">
+      <div class="container">
+  
+        <address class="topbar-item">
+          <div class="icon">
+            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+          </div>
+  
+          <span class="span">
+            Restaurant St, Delicious City, Awesome Town 9578, NJ
+          </span>
+        </address>
+  
+        <div class="separator"></div>
+  
+        <div class="topbar-item item-2">
+          <div class="icon">
+            <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+          </div>
+  
+          <span class="span">Daily : 10.00 am to 10.00 pm</span>
+        </div>
+  
+        <a href="tel:+11234567890" class="topbar-item link">
+          <div class="icon">
+            <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+          </div>
+  
+          <span class="span">+1 987 765 4321</span>
+        </a>
+  
+        <div class="separator"></div>
+  
+        <a href="mailto:greencanvas@restaurant.com" class="topbar-item link">
+          <div class="icon">
+            <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+          </div>
+  
+          <span class="span">greencanvas@restaurant.com</span>
+        </a>
+  
+      </div>
+    </div>
+  
+  
+  
+  
+  
+    <!-- 
+      - #HEADER
+    -->
+  
+    <header class="header" data-header>
+      <div class="container">
+  
+        <a href="main.html" class="logo">
+          <img src="logo_final.png" width="150" height="20" alt="Grilli - Home">
+        </a>
+  
+        <nav class="navbar" data-navbar>
+          <button class="close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+          <a href="main.html" class="logo">
+            <img src="logo_final.png" width="70" height="50" alt="Grilli - Home">
+          </a>
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="main.html" class="navbar-link hover-underline">
+                <span class="span">Home</span>
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a href="aboutus.html" class="navbar-link hover-underline">
+                <span class="span">About Us</span>
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a href="Newmenu1.html#menu" class="navbar-link hover-underline">
+                <span class="span">Menu</span>
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a href="farmtotable.html" class="navbar-link hover-underline">
+                <span class="span">Farm-to-Table</span>
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a href="preparation.html" class="navbar-link hover-underline">
+                <span class="span">Preparation</span>
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a href="sustainability.html" class="navbar-link hover-underline active">
+                <span class="span">Sustainability</span>
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a href="Contactus.html" class="navbar-link hover-underline">
+                <span class="span">Contact Us</span>
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a href="references.html" class="navbar-link hover-underline">
+                <span class="span">References</span>
+              </a>
+            </li>
+          </ul>
+  
+          <div class="text-center">
+            <p class="headline-1 navbar-title">Visit Us</p>
+  
+            <address class="body-4">
+              Restaurant St, Delicious City, <br>
+              London 9578, UK
+            </address>
+  
+            <p class="body-4 navbar-text">Open: 9.30 am - 2.30pm</p>
+  
+            <a href="mailto:booking@grilli.com" class="body-4 sidebar-link">booking@thegreencanvas.com</a>
+  
+            <div class="separator"></div>
+  
+            <p class="contact-label">Booking Request</p>
+  
+            <a href="tel:+88123123456" class="body-1 contact-number hover-underline">
+              +1 987 765 4321
+            </a>
+          </div>
+  
+        </nav>
+  
+        <a href="main.html#reservationform" class="btn btn-secondary">
+          <span class="text text-1">Find A Table</span>
+  
+          <span class="text text-2" aria-hidden="true">Find A Table</span>
+        </a>
+  
+        <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+  
+        <div class="overlay" data-nav-toggler data-overlay></div>
+  
+      </div>
+    </header>
+  
+  
+  
+  
+  
+    <body>
+      <article>
+  
+        <!-- 
+          - #HERO
+        -->
+  
+        <section class="hero text-center" aria-label="home" id="home">
+  
+          <ul class="hero-slider" data-hero-slider>
+  
+            <li class="slider-item active" data-hero-slider-item>
+  
+              <div class="slider-bg">
+                <div class="dark-overlay-image">
+                  <img src="douglas-raggio-_Tt2HSV6lgY-unsplash.jpg " alt="" class="img-cover"/>
+                </div>
+              </div>
+  
+              <p class="label-2 section-subtitle slider-reveal">Playing our part to preserve our Earth</p>
+  
+              <h1 class="display-1 hero-title slider-reveal">
+                Sustainabiliity
+              </h1>
+  
+              <p class="body-2 hero-text slider-reveal">
+                Locally Sourced Food to Your Plate
+              </p>
+  
+              <a href="#absec" class="btn btn-primary slider-reveal">
+                <span class="text text-1">Discover how we Protect our Planet</span>
+  
+                <span class="text text-2" aria-hidden="true">Click Here</span>
+              </a>
+  
+            </li>
+  
+            <li class="slider-item" data-hero-slider-item>
+  
+              <div class="slider-bg">
+                <div class="dark-overlay-image">
+                  <img src="rafael-albornoz-WHY_c8sxghg-unsplash.jpg" alt="" class="img-cover"/>
+                </div>
+              </div>
+  
+              <p class="label-2 section-subtitle slider-reveal">Playing our part to preserve our Earth</p>
+  
+              <h1 class="display-1 hero-title slider-reveal">
+                Sustainability              </h1>
+  
+              <p class="body-2 hero-text slider-reveal">
+                Locally Sourced Food to Your Plate
+              </p>
+  
+              <a href="#absec" class="btn btn-primary slider-reveal">
+                <span class="text text-1">Discover how we Protect our Planet</span>
+  
+                <span class="text text-2" aria-hidden="true">Click Here</span>
+              </a>
+  
+            </li>
+  
+            <li class="slider-item" data-hero-slider-item>
+  
+                <div class="slider-bg">
+                  <div class="dark-overlay-image">
+                    <img src="karsten-wurth-UbGYPMbMYP8-unsplash.jpg" alt="" class="img-cover"/>
+                  </div>
+                </div>
+    
+                <p class="label-2 section-subtitle slider-reveal">Playing our part to preserve our Earth</p>
+    
+                <h1 class="display-1 hero-title slider-reveal">
+                  Sustainability                </h1>
+    
+                <p class="body-2 hero-text slider-reveal">
+                  Locally Sourced Food to Your Plate
+                </p>
+    
+                <a href="#absec" class="btn btn-primary slider-reveal">
+                  <span class="text text-1">Discover how we Protect our Planet</span>
+    
+                  <span class="text text-2" aria-hidden="true">Click Here</span>
+                </a>
+    
+              </li>
+  
+          </ul>
+  
+          <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
+            <ion-icon name="chevron-back"></ion-icon>
+          </button>
+  
+          <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+            <ion-icon name="chevron-forward"></ion-icon>
+          </button>
+  
+  
+        </section>
+</article>
+<!-- Replace the current about section with this updated version -->
+<section class="section about" id="absec" aria-labelledby="about-label">
+  <div class="sustainability-intro-container">
+    <div class="about-content">
+      <p class="label-2 section-subtitle">Eco-Friendly Dining</p>
+      <h2 class="headline-1 section-title">Our Commitment to Sustainability</h2>
+      <p class="section-text">
+        At The Green Canvas, sustainability isn't just a buzzword—it's at the heart of everything we do. 
+        From sourcing ingredients to waste management, we strive to minimize our environmental footprint 
+        while creating delicious, nourishing food. We believe that responsible choices today create a 
+        better tomorrow for our planet and community. <br><br> <b>Click through the images to see how we play our part in keeping our planet green, and scroll down to learn more details!</b>
+      </p>
+    </div>
+    
+    <div class="container1">
+      <input type="radio" name="slider" id="item-1" checked>
+      <input type="radio" name="slider" id="item-2">
+      <input type="radio" name="slider" id="item-3">
+      
+      <div class="cards">
+        <label class="card" for="item-1" id="sustain-1">
+          <img src="jack-church-LZ8NzZrByts-unsplash (1).jpg" alt="Local Sourcing">
+          <div class="card-info">
+            <h3>Local Sourcing</h3>
+          </div>
+        </label>
+        
+        <label class="card" for="item-2" id="sustain-2">
+          <img src="noah-buscher-x8ZStukS2PM-unsplash (1).jpg" alt="Zero Waste Initiatives">
+          <div class="card-info">
+            <h3>Zero Waste Initiatives</h3>
+          </div>
+        </label>
+        
+        <label class="card" for="item-3" id="sustain-3">
+          <img src="levan-badzgaradze-wRwo_uLMM6o-unsplash.jpg" alt="Renewable Energy">
+          <div class="card-info">
+            <h3>Renewable Energy</h3>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</section><!-- Sustainability Carousel -->
+
+
+<!-- Sustainability Detailed Sections -->
+<div class="container">
+  <!-- Local Sourcing Section -->
+  <div class="sustainability-section">
+    <div class="sustainability-content">
+      <h2 class="headline-1 sustainability-title">Local Sourcing</h2>
+      <p class="section-text">
+        Our local sourcing initiative reduces food miles and supports the regional economy. We partner with farmers 
+        within a 100-mile radius to get the freshest ingredients while minimizing transportation emissions. 
+        These partnerships also help preserve agricultural land and traditional farming practices.
+      </p>
+      <p class="section-text">
+        By working directly with producers, we ensure fair compensation and develop custom growing programs 
+        for unique, seasonal ingredients that define our menu. Our chefs regularly visit farms to 
+        maintain relationships and gain deeper understanding of the ingredients they work with.
+      </p>
+    </div>
+    <div class="sustainability-image">
+      <img src="dan-meyers-IQVFVH0ajag-unsplash.jpg" alt="Chefs visiting local farm">
+    </div>
+  </div>  
+
+  <!-- Zero Waste Section -->
+  <div class="sustainability-section">
+    <div class="sustainability-content">
+      <h2 class="headline-1 sustainability-title">Zero Waste Initiatives</h2>
+      <p class="section-text">
+        Our commitment to zero waste means we use every part of our ingredients. Vegetable trimmings become 
+        stocks, fruit scraps transform into vinegars, and herb stems flavor oils. We've reduced our 
+        landfill waste by 85% through comprehensive composting and recycling programs.
+      </p>
+      <p class="section-text">
+        We've eliminated single-use plastics throughout our operation, using biodegradable takeout 
+        containers, compostable straws, and reusable cloth napkins. Even our menus are printed on 
+        recycled paper using vegetable-based inks. Our staff undergoes special training on waste 
+        reduction techniques and proper sorting.
+      </p>
+    </div>
+    <div class="sustainability-image">
+      <img src="rohan-g--mwNJswDlXE-unsplash.jpg" alt="Zero waste practices in our kitchen">
+    </div>
+  </div>
+
+  <!-- Renewable Energy Section -->
+  <div class="sustainability-section">
+    <div class="sustainability-content">
+      <h2 class="headline-1 sustainability-title">Renewable Energy</h2>
+      <p class="section-text">
+        The Green Canvas is powered by 100% renewable energy. Our rooftop solar panels generate a significant 
+        portion of our electricity needs, while we purchase additional renewable energy credits to offset 
+        our remaining usage. Energy-efficient appliances and LED lighting throughout our restaurant further 
+        reduce our consumption.
+      </p>
+      <p class="section-text">
+        Smart controls optimize our heating and cooling systems, and our building's insulation exceeds 
+        industry standards. Our commitment to renewable energy has reduced our carbon footprint by 
+        60% compared to similar-sized restaurants. We also encourage staff and customers to use sustainable 
+        transportation options with bike racks and EV charging stations.
+      </p>
+    </div>
+    <div class="sustainability-image">
+      <img src="anders-j-hxUcl0nUsIY-unsplash.jpg" alt="Solar panels on our restaurant roof">
+    </div>
+  </div>
+</div>
+
+<!-- Certifications Section -->
+<section class="certifications">
+  <div class="container">
+    <h2 class="headline-1 section-title text-center">Our Sustainability Certifications</h2>
+    <p class="section-text text-center">
+      Our commitment to sustainability has been recognized by these respected organizations:
+    </p>
+    
+    <div class="certifications-grid">
+      <div class="certification-item">
+        <img src="Adobe Express - file.png" alt="Certified Organic" id="picone">
+    
+        <h3 class="title-3" id="tit3">3-star Green Restaurant</h3>
+        <p class="label-1" id="lb1">Green Restaurant Association</p>
+      </div>
+      
+      <div class="certification-item">
+        <img src="RT_OrganicFourColorOrganicSeal.jpg" alt="Green Restaurant" id="picone">
+        <h3 class="title-3" id="tit3">Certified Organic</h3>
+        <p class="label-1" id="lb1">USDA Organic Certification</p>
+      </div>
+      
+      <div class="certification-item">
+        <img src="zerowaste-seal-greenapproved.png" alt="Zero Waste" id="picone">
+        <h3 class="title-3" id="tit3">Zero Waste Certificate</h3>
+        <p class="label-1" id="lb1">TRUE Zero Waste Certification</p>
+      </div>
+      
+      <div class="certification-item">
+        <img src="Energy_Star_logo.svg.png" alt="Energy Star" id="picone">
+        <h3 class="title-3" id="tit3">Energy Star</h3>
+        <p class="label-1" id="lb1">EPA Energy Star Partner</p>
+      </div>
+    </div>
+  </div>
+</section>
+</article>
+</main>
+
+
+
+
+<!-- 
+- #BACK TO TOP
+-->
+<a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
+<ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+</a>
+
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const timelineContainer = document.getElementById('elegant-timeline');
+
+        function checkScroll() {
+            const triggerBottom = window.innerHeight * 0.8;
+
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+
+                if (itemTop < triggerBottom) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Dynamic background
+            const activeItem = Array.from(timelineItems)
+                .find(item => item.classList.contains('active'));
+
+            
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        checkScroll(); // Initial check
+    });
+</script>
+</body>
+
+</html>

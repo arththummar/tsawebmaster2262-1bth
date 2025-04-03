@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+ 
+  <meta name="title" content="The Green Canvas">
+  
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Audrey&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aileron&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="hero-slider-1.jpg">
+  <link rel="preload" as="image" href="hero-slider-2.jpg">
+  <link rel="preload" as="image" href="hero-slider-3.jpg">
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #PRELOADER
+  -->
+
+  <div class="preload" data-preaload>
+    <div class="circle"></div>
+    <p class="text">Green Canvas</p>
+  </div>
+
+
+
+
+
+  <!-- 
+    - #TOP BAR
+  -->
+
+  <div class="topbar">
+    <div class="container">
+
+      <address class="topbar-item">
+        <div class="icon">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">
+          Restaurant St, Delicious City, Awesome Town 9578, NJ
+        </span>
+      </address>
+
+      <div class="separator"></div>
+
+      <div class="topbar-item item-2">
+        <div class="icon">
+          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">Daily : 10.00 am to 10.00 pm</span>
+      </div>
+
+      <a href="tel:+11234567890" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">+1 987 765 4321</span>
+      </a>
+
+      <div class="separator"></div>
+
+      <a href="mailto:greencanvas@restaurant.com" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">greencanvas@restaurant.com</span>
+      </a>
+
+    </div>
+  </div>
+
+
+
+
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="main.html" class="logo">
+        <img src="logo_final.png" width="150" height="20" alt="Grilli - Home">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <button class="close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+        <a href="main.html" class="logo">
+          <img src="logo_final.png" width="70" height="50" alt="Grilli - Home">
+        </a>
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="main.html" class="navbar-link hover-underline active">
+              <span class="span">Home</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="aboutus.html" class="navbar-link hover-underline">
+              <span class="span">About Us</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="Newmenu1.html#menu" class="navbar-link hover-underline">
+              <span class="span">Menu</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="farmtotable.html" class="navbar-link hover-underline">
+              <span class="span">Farm-to-Table</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="preparation.html" class="navbar-link hover-underline">
+              <span class="span">Preparation</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="sustainability.html" class="navbar-link hover-underline">
+              <span class="span">Sustainability</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="Contactus.html" class="navbar-link hover-underline">
+              <span class="span">Contact Us</span>
+            </a>
+          </li>
+          </li>
+        </ul>
+        <div class="text-center">
+          <p class="headline-1 navbar-title">Visit Us</p>
+
+          <address class="body-4">
+            Restaurant St, Delicious City, <br>
+            London 9578, UK
+          </address>
+
+          <p class="body-4 navbar-text">Open: 9.30 am - 2.30pm</p>
+
+          <a href="mailto:booking@grilli.com" class="body-4 sidebar-link">booking@thegreencanvas.com</a>
+
+          <div class="separator"></div>
+
+          <p class="contact-label">Booking Request</p>
+
+          <a href="tel:+88123123456" class="body-1 contact-number hover-underline">
+            +1 987 765 4321
+          </a>
+        </div>
+
+      </nav>
+
+      <a href="#reservationform" class="btn btn-secondary">
+        <span class="text text-1">Find A Table</span>
+
+        <span class="text text-2" aria-hidden="true">Find A Table</span>
+      </a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero text-center" aria-label="home" id="home">
+
+        <ul class="hero-slider" data-hero-slider>
+
+          <li class="slider-item active" data-hero-slider-item>
+
+            <div class="slider-bg">
+              <div class="dark-overlay-image">
+                <img src="hero-slider-1.jpg" alt="" class="img-cover"/>
+              </div>
+            </div>
+
+            <p class="label-2 section-subtitle slider-reveal">Eco-Friendly and Delicious</p>
+
+            <h1 class="display-1 hero-title slider-reveal">
+              The Green Canvas 
+            </h1>
+
+            <p class="body-2 hero-text slider-reveal">
+              From the farm to your plate.
+            </p>
+
+            <a href="Newmenu1.html#menu" class="btn btn-primary slider-reveal">
+              <span class="text text-1">View Our Menu</span>
+
+              <span class="text text-2" aria-hidden="true">Click Here</span>
+            </a>
+
+          </li>
+
+          <li class="slider-item" data-hero-slider-item>
+
+            <div class="slider-bg">
+              <div class="dark-overlay-image">
+                <img src="hero-slider-2.1.jpg" alt="" class="img-cover"/>
+              </div>
+            </div>
+
+            <p class="label-2 section-subtitle slider-reveal">Eco-Friendly and Delicious</p>
+
+            <h1 class="display-1 hero-title slider-reveal">
+                The Green Canvas
+            </h1>
+
+            <p class="body-2 hero-text slider-reveal">
+                From the farm to your plate.
+            </p>
+
+            <a href="Newmenu1.html#menu" class="btn btn-primary slider-reveal">
+              <span class="text text-1">View Our Menu</span>
+
+              <span class="text text-2" aria-hidden="true">View Our Menu</span>
+            </a>
+
+          </li>
+
+          <li class="slider-item" data-hero-slider-item>
+
+            <div class="slider-bg">
+              <div class="dark-overlay-image">
+                <img src="hero-slider-3.1.jpg" alt="" class="img-cover"/>
+              </div>
+            </div>
+
+            <p class="label-2 section-subtitle slider-reveal">Eco-friendly and delicious</p>
+
+            <h1 class="display-1 hero-title slider-reveal">
+              The Green Canvas
+            </h1>
+
+            <p class="body-2 hero-text slider-reveal">
+                From the farm to your plate.
+            </p>
+
+            <a href="Newmenu1.html#menu" class="btn btn-primary slider-reveal">
+              <span class="text text-1">View Our Menu</span>
+
+              <span class="text text-2" aria-hidden="true">View Our Menu</span>
+            </a>
+
+          </li>
+
+        </ul>
+
+        <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
+          <ion-icon name="chevron-back"></ion-icon>
+        </button>
+
+        <button class="slider-btn next" aria-label="slide to next" data-next-btn>
+          <ion-icon name="chevron-forward"></ion-icon>
+        </button>
+
+       
+        <div class="arrow">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+
+      </section>
+
+
+
+
+
+ 
+
+      <section class="section about text-center" aria-labelledby="about-label" id="about">
+        <div class="container">
+
+          <div class="about-content">
+
+            <p class="label-2 section-subtitle" id="about-label">Fresh Food</p>
+
+            <h2 class="headline-1 section-title">Dedication to Ingredient Freshness.</h2>
+
+            <p class="section-text" id="ptext">
+              We partner with local farmers and suppliers to reduce travel time and support our community. 
+              Using freshest, in-season produce, whose flavor could be mitigated by long-distance transportation and refrigeration.<br>
+            <b>Click below to learn our farm to table processes!</b>
+              
+
+      
+            </p>
+
+     
+
+          
+
+            <a href="farmtotable.html" class="btn btn-primary">
+              <span class="text text-1">Farm to Table</span>
+
+              <span class="text text-2" aria-hidden="true">Read More</span>
+            </a>
+
+          </div>
+
+          <figure class="about-banner">
+
+            <img src="Tomatos.jpg" width="570" height="570" loading="lazy" alt="about banner"
+              class="w-100" data-parallax-item data-parallax-speed="1">
+
+            <div class="abs-img abs-img-1 has-before" data-parallax-item data-parallax-speed="1.75">
+              <img src="Farmer.jpg" width="285" height="285" loading="lazy" alt=""
+                class="w-100">
+            </div>
+
+      
+
+          </figure>
+
+       
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #SPECIAL DISH
+      -->
+
+      <section class="special-dish text-center" aria-labelledby="dish-label">
+
+        <div class="special-dish-banner">
+          <img src="Teriyaki.jpg" width="600" height="900" loading="lazy" alt="special dish"
+            class="img-cover">
+        </div>
+
+        <div class="special-dish-content bg-black-10">
+          <div class="container">
+
+            <img src="badge-1.png" width="28" height="41" loading="lazy" alt="badge" class="abs-img">
+
+            <p class="section-subtitle label-2">Weekly Special</p>
+
+            <h2 class="headline-1 section-title">Teriyaki Buddha Bowl Bliss</h2>
+
+            <p class="section-text">
+              A healthy and flavorful bowl filled with brown rice, grilled tofu, roasted vegetables, and a teriyaki glaze. Available this week for half the price off!
+
+            </p>
+
+            <div class="wrapper">
+              <del class="del body-3">$24.00</del>
+
+              <span class="span body-1">$12.00</span>
+            </div>
+
+            <a href="Newmenu1.html#menu" class="btn btn-primary">
+              <span class="text text-1">View Full Menu</span>
+
+              <span class="text text-2" aria-hidden="true">View All Menu</span>
+            </a>
+
+          </div>
+        </div>
+
+        <img src="shape-4.png" width="179" height="359" loading="lazy" alt="" class="shape shape-1">
+
+        
+      </section>
+
+
+
+     <!-- 
+        - #SERVICE
+      -->
+
+      <section class="section service bg-black-10 text-center" aria-label="service">
+        <div class="container">
+
+          <p class="section-subtitle label-2">Sustainable Practices</p>
+
+          <h2 class="headline-1 section-title">Dedicated to Sustainability </h2>
+
+          <p class="section-text" id="sustantxt">
+            At The Green Canvas, we prioritize eco-friendly practices, from sourcing fresh, local ingredients to minimizing waste with sustainable packaging. Discover how we make every meal greener for you and the planet!
+          </p>
+          <div class="image-container" id="greenplant">
+            <img src="greenplant.jpg" alt="Sample Image" class="hover-image">
+            <div class="tooltip">Plant-Based Sustainablitiy</div>
+        </div>
+
+          
+            <a href="sustainability.html" class="btn btn-primary" id="sustanbtn">
+            <span class="text text-1" >Restaurant Sustainability</span>
+
+            <span class="text text-2" aria-hidden="true" >Restaurant Sustainability</span>
+            </a>
+        </div>
+
+
+         
+
+          <img src="shape-1.png" width="246" height="412" loading="lazy" alt="shape"
+            class="shape shape-1 move-anim">
+          <img src="shape-2.png" width="343" height="345" loading="lazy" alt="shape"
+            class="shape shape-2 move-anim">
+
+        </div>
+      </section> 
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <!-- 
+        - #MENU
+      -->
+
+      <section class="section menu" aria-label="menu-label" id="menu">
+        <div class="container">
+
+          
+
+          <h2 class="headline-1 section-title text-center">Our Seasonal Specials</h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="menu-card hover:card">
+
+                <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                  <img src="Smoothiebowl.jpg" width="100" height="100" loading="lazy" alt="Greek Salad"
+                    class="img-cover">
+                </figure>
+
+                <div>
+
+                  <div class="title-wrapper">
+                    <h3 class="title-3">
+                      <a href="#" class="card-title">Tropical Strawberry  and Granola Smoothie Bowl</a>
+                    </h3>
+
+                    <span class="badge label-1">Special</span>
+
+                    <span class="span title-2">$8.99</span>
+                  </div>
+
+                  <p class="card-text label-1">
+                    A refreshing blend of ripe strawberries, banana, and coconut milk, topped with crunchy granola, fresh tropical fruits, and a drizzle of honey.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="menu-card hover:card">
+
+                <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                  <img src="Quesadilla.jpg" width="100" height="100" loading="lazy" alt="Lasagne"
+                    class="img-cover" id="Quesadilla">
+                </figure>
+
+                <div>
+
+                  <div class="title-wrapper">
+                    <h3 class="title-3">
+                      <a href="#" class="card-title">Mushroom & Spinach Quesadilla Supreme</a>
+                    </h3>
+
+                    <span class="span title-2">$11.99</span>
+                  </div>
+
+                  <p class="card-text label-1">
+                    A cheesy quesadilla filled with sautéed mushrooms, spinach, and melted cheese.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="menu-card hover:card">
+
+                <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                  <img src="cauliwings.jpg" width="100" height="100" loading="lazy" alt="Butternut Pumpkin"
+                    class="img-cover">
+                </figure>
+
+                <div>
+
+                  <div class="title-wrapper">
+                    <h3 class="title-3">
+                      <a href="#" class="card-title">Fiery Buffalo Bites</a>
+                    </h3>
+
+                    <span class="span title-2">$10.99</span>
+                  </div>
+
+                  <p class="card-text label-1">
+                    Crispy cauliflower florets tossed in a spicy buffalo sauce, served with creamy ranch dressing.
+
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="menu-card hover:card">
+
+                <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                  <img src="KaleSalad.jpg" width="100" height="100" loading="lazy" alt="Tokusen Wagyu"
+                    class="img-cover">
+                </figure>
+
+                <div>
+
+                  <div class="title-wrapper">
+                    <h3 class="title-3">
+                      <a href="#" class="card-title">Kale & Apple Symphony Salad</a>
+                    </h3>
+
+                    <span class="badge label-1">New</span>
+
+                    <span class="span title-2">$11.99</span>
+                  </div>
+
+                  <p class="card-text label-1">
+                    A vibrant salad with kale, apples, walnuts, bananas, mangos, and a light vinaigrette.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+           
+
+          </ul>
+
+          <p class="menu-text text-center">
+            During spring daily from <span class="span">10:00 am</span> to <span class="span">9:00 pm</span>
+          </p>
+
+          <a href="Newmenu1.html#menu" class="btn btn-primary">
+            <span class="text text-1">View All Menu</span>
+
+            <span class="text text-2" aria-hidden="true">View All Menu</span>
+          </a>
+
+          <img src="shape-5.png" width="921" height="1036" loading="lazy" alt="shape"
+            class="shape shape-2 move-anim">
+          <img src="shape-6.png" width="343" height="345" loading="lazy" alt="shape"
+            class="shape shape-3 move-anim">
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #TESTIMONIALS
+      -->
+
+      
+
+
+
+
+
+      <!-- 
+        - #RESERVATION
+      -->
+
+      <section class="reservation" id="reservationform">
+        <div class="container">
+
+          <div class="form reservation-form bg-black-10">
+
+            <form action="" class="form-left">
+
+              <h2 class="headline-1 text-center">Online Reservation</h2>
+
+              <p class="form-text text-center">
+                Booking request <a href="tel:+88123123456" class="link">+1 987 765 4321</a>
+                or fill out the order form
+              </p>
+
+              <div class="input-wrapper">
+                <input type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field">
+
+                <input type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field">
+              </div>
+
+              <div class="input-wrapper">
+
+                <div class="icon-wrapper">
+                  <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+
+                  <select name="person" class="input-field">
+                    <option value="1-person">1 Person</option>
+                    <option value="2-person">2 Person</option>
+                    <option value="3-person">3 Person</option>
+                    <option value="4-person">4 Person</option>
+                    <option value="5-person">5 Person</option>
+                    <option value="6-person">6 Person</option>
+                    <option value="7-person">7 Person</option>
+                  </select>
+
+                  <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+                </div>
+
+                <div class="icon-wrapper">
+                  <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon>
+
+                  <input type="date" name="reservation-date" class="input-field">
+
+                  <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+                </div>
+
+                <div class="icon-wrapper">
+                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+
+                  <select name="person" class="input-field">
+                
+                    <option value="010:00am">10 : 00 am</option>
+                    <option value="011:00am">11 : 00 am</option>
+                    <option value="012:00am">12 : 00 am</option>
+                    <option value="01:00pm">01 : 00 pm</option>
+                    <option value="02:00pm">02 : 00 pm</option>
+                    <option value="03:00pm">03 : 00 pm</option>
+                    <option value="04:00pm">04 : 00 pm</option>
+                    <option value="05:00pm">05 : 00 pm</option>
+                    <option value="06:00pm">06 : 00 pm</option>
+                    <option value="07:00pm">07 : 00 pm</option>
+                    <option value="08:00pm">08 : 00 pm</option>
+                    <option value="09:00pm">09 : 00 pm</option>
+                    <option value="10:00pm">10 : 00 pm</option>
+                  </select>
+
+                  <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
+                </div>
+
+              </div>
+
+              <textarea name="message" placeholder="Message" autocomplete="off" class="input-field"></textarea>
+
+              <button type="submit" class="btn btn-secondary">
+                <span class="text text-1">Book A Table</span>
+
+                <span class="text text-2" aria-hidden="true">Book A Table</span>
+              </button>
+
+            </form>
+
+            <div class="form-right text-center" style="background-image: url('form-pattern.png')">
+
+              <h2 class="headline-1 text-center">Contact Us</h2>
+
+              <p class="contact-label">Booking Request</p>
+
+              <a href="tel:+88123123456" class="body-1 contact-number hover-underline">+1 987 765 4321</a>
+
+              <div class="separator"></div>
+
+              <p class="contact-label">Location</p>
+
+              <address class="body-4">
+                Restaurant St, Delicious City, <br>
+                Awesome Town 9578, NJ              
+              </address>
+
+              <p class="contact-label">Lunch Time</p>
+
+              <p class="body-4">
+                Monday to Sunday <br>
+                12:30pm - 3:00pm
+              </p>
+
+              <p class="contact-label">Dinner Time</p>
+
+              <p class="body-4">
+                Monday to Sunday <br>
+                05.00 pm - 10.00pm
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #FEATURES
+      -->
+
+  
+
+
+
+
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+ 
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,865 @@
+html
+
+Preview
+
+Collapse
+
+Wrap
+
+Copy
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- primary meta tags -->
+  <meta name="title" content="The Green Canvas - Sustainable and delicious food">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Audrey&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aileron&display=swap" rel="stylesheet">
+
+  <!-- custom css link -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- preload images -->
+  <link rel="preload" as="image" href="hero-slider-1.jpg">
+  <link rel="preload" as="image" href="hero-slider-2.jpg">
+  <link rel="preload" as="image" href="hero-slider-3.jpg">
+
+  <style>
+    :root {
+      --primary-color: #000000;
+      --secondary-color: hsl(124, 59%, 61%);
+      --accent-color: hsl(124, 59%, 61%);
+      --text-color: black;
+      --background-color: #171616;
+      --shadow-color: rgba(28, 27, 27, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--background-color);
+      line-height: 1.6;
+      color: var(--text-color);
+    }
+
+    #firstone {
+      transform: translateX(-3vw);
+    }
+
+    #thirdone {
+      transform: translateX(-3vw);
+    }
+
+    .header .navbar-link,
+    .header .navbar-link .span,
+    .header .navbar-title,
+    .header .navbar-text,
+    .header .sidebar-link,
+    .header .contact-number,
+    .topbar .topbar-item,
+    .topbar .topbar-item .span,
+    .topbar .topbar-item.link {
+      color: white !important;
+    }
+
+    .body-2 {
+      color: white !important;
+    }
+
+    .timeline-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-header {
+      text-align: center;
+      margin-bottom: 70px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline-header_title {
+      font-family: 'Bebas Neue';
+      color: white;
+      font-size: calc(1.3rem + 6.7vw);
+      font-weight: 400;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .timeline-header_title::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: var(--secondary-color);
+      bottom: -10px;
+      left: 0;
+      transform: scaleX(0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .timeline-header_subtitle {
+      color: var(--secondary-color);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 300;
+      font-size: 1rem;
+      color: black;
+    }
+
+    .timeline {
+      position: relative;
+      padding: 50px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--secondary-color) 0%, var(--accent-color) 100%);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 20px;
+      margin-bottom: 50px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .timeline-item:nth-child(even) {
+      align-self: flex-end;
+      margin-left: auto;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      border: 4px solid var(--secondary-color);
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:nth-child(odd)::before {
+      right: -40px;
+    }
+
+    .timeline-item:nth-child(even)::before {
+      left: -40px;
+    }
+
+    .timeline-item.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item.active::before {
+      background: var(--secondary-color);
+    }
+
+    .timeline_img-container {
+      position: relative;
+      width: 120%;
+      height: 350px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px var(--shadow-color);
+      transition: transform 0.4s ease;
+    }
+
+    .timeline-item:nth-child(odd) .timeline_img-container {
+      margin-left: -10%;
+    }
+
+    .timeline-item:nth-child(even) .timeline_img-container {
+      margin-right: -10%;
+    }
+
+    .timeline_img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .timeline-item:hover .timeline_img-container {
+      transform: scale(1.05);
+    }
+
+    .timeline_content {
+      background-color: white;
+      box-shadow: 0 10px 30px var(--shadow-color);
+      padding: 40px 30px;
+      position: relative;
+      z-index: 2;
+      margin-top: -80px;
+      transition: all 0.4s ease;
+    }
+
+    .timeline-item:hover .timeline_content {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .timeline_content-title {
+      font-family: 'Bebas Neue';
+      color: var(--primary-color);
+      font-size: 40px;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .timeline_content-title::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent-color);
+      bottom: -5px;
+      left: 0;
+      transform: scaleX(0.4);
+    }
+
+    .timeline_content-desc {
+      color: var(--text-color);
+      font-weight: 300;
+    }
+
+    /* New styles for the dual box layout */
+    .page-title {
+      text-align: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      color: white;
+      margin: 0 0 40px;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    .page-title::after {
+      content: '';
+      position: absolute;
+      width: 150px;
+      height: 4px;
+      background-color: var(--secondary-color);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .dual-box-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      gap: 30px;
+    }
+
+    .info-box {
+      flex: 1 1 45%;
+      min-width: 300px;
+      background-color: #333;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .info-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+
+    .info-box-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .info-box-title::after {
+      content: '';
+      position: absolute;
+      width: 70%;
+      height: 3px;
+      background-color: var(--secondary-color);
+      bottom: -10px;
+      left: 0;
+    }
+
+    .intro-section {
+      padding: 220px 0 70px;
+      background-color: var(--background-color);
+      position: relative;
+    }
+
+    .section-text {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .info-btn {
+      padding: 12px 25px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .info-btn:hover {
+      background-color: white;
+      color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+
+    .logs-section {
+      padding: 80px 0;
+      background-color: #222;
+    }
+
+    .log-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .log-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      color: white;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .log-content {
+      background-color: #333;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .log-image-placeholder {
+      width: 100%;
+      height: 400px;
+      background-color: #444;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      margin: 20px 0;
+    }
+
+    /* Additional styles for references subsections */
+    .references-subsection {
+      margin-top: 20px;
+    }
+
+    .references-subheader {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+    }
+
+    .references-list {
+      list-style-type: none;
+      padding: 0;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .references-list li {
+      margin-bottom: 10px;
+    }
+
+    .references-list a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+
+    .references-list a:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 768px) {
+      .dual-box-container {
+        flex-direction: column;
+      }
+
+      .info-box {
+        margin-bottom: 20px;
+      }
+
+      .timeline::before {
+        left: 30px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 30px;
+      }
+
+      .timeline-item:nth-child(even) {
+        margin-left: 0;
+      }
+
+      .timeline-item::before {
+        left: -35px;
+      }
+
+      .timeline_img-container {
+        width: 100%;
+        height: 250px;
+        margin: 0 0 20px 0 !important;
+      }
+
+      .timeline_content {
+        margin-top: 0;
+        padding: 20px;
+      }
+
+      .intro-section {
+        padding: 150px 0 50px;
+      }
+
+      .info-box-title {
+        font-size: 2.5rem;
+      }
+
+      .page-title {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <!-- #PRELOADER -->
+  <div class="preload" data-preaload>
+    <div class="circle"></div>
+    <p class="text">Grilli</p>
+  </div>
+
+  <!-- #TOP BAR -->
+  <div class="topbar">
+    <div class="container">
+      <address class="topbar-item">
+        <div class="icon">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">Restaurant St, Delicious City, Awesome Town 9578, NJ</span>
+      </address>
+      <div class="topbar-item item-2">
+        <div class="icon">
+          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">Daily : 10.00 am to 10.00 pm</span>
+      </div>
+      <a href="tel:+11234567890" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">+1 987 765 4321</span>
+      </a>
+      <a href="mailto:greencanvas@restaurant.com" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+        </div>
+        <span class="span">greencanvas@restaurant.com</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- #HEADER -->
+  <header class="header" data-header>
+    <div class="container">
+      <a href="main.html" class="logo">
+        <img src="logo_final.png" width="150" height="20" alt="Grilli - Home">
+      </a>
+      <nav class="navbar" data-navbar>
+        <button class="close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+        <a href="main.html" class="logo">
+          <img src="logo_final.png" width="70" height="50" alt="Grilli - Home">
+        </a>
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="main.html" class="navbar-link hover-underline">
+              <span class="span">Home</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="aboutus.html" class="navbar-link hover-underline">
+              <span class="span">About Us</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="Newmenu1.html" class="navbar-link hover-underline">
+              <span class="span">Menu</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="farmtotable.html" class="navbar-link hover-underline">
+              <span class="span">Farm-to-Table</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="preparation.html" class="navbar-link hover-underline">
+              <span class="span">Preparation</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="sustainability.html" class="navbar-link hover-underline">
+              <span class="span">Sustainability</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="Contactus.html" class="navbar-link hover-underline">
+              <span class="span">Contact Us</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="references.html" class="navbar-link hover-underline active">
+              <span class="span">References</span>
+            </a>
+          </li>
+        </ul>
+        <div class="text-center">
+          <p class="headline-1 navbar-title">Visit Us</p>
+          <address class="body-4">
+            Restaurant St, Delicious City,
+            London 9578, UK
+          </address>
+          <p class="body-4 navbar-text">Open: 9.30 am - 2.30pm</p>
+          <a href="mailto:booking@grilli.com" class="body-4 sidebar-link">booking@thegreencanvas.com</a>
+          <p class="contact-label">Booking Request</p>
+          <a href="tel:+88123123456" class="body-1 contact-number hover-underline">+1 987 765 4321</a>
+        </div>
+      </nav>
+      <a href="#" class="btn btn-secondary">
+        <span class="text text-1">Find A Table</span>
+        <span class="text text-2" aria-hidden="true">Find A Table</span>
+      </a>
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+      <div class="overlay" data-nav-toggler data-overlay></div>
+    </div>
+  </header>
+
+  <body>
+    <article>
+      <section class="intro-section">
+        <div class="container">
+          <h1 class="page-title">Information & Documentation</h1>
+          <div class="dual-box-container">
+            <!-- First Box: References -->
+            <div class="info-box">
+              <h2 class="info-box-title">References</h2>
+              <p class="section-text" id="farmtext">
+                At The Green Canvas, we believe in transparency about where your food comes from. Our farm-to-table philosophy isn't just a trend—it's our commitment to sustainability, freshness, and supporting local communities.
+              </p>
+              <!-- Image References Subsection -->
+              <div class="references-subsection">
+                <h3 class="references-subheader">Image References</h3>
+                <ul class="references-list">
+                  <li><a href="https://unsplash.com/photos/red-tomatoes-on-brown-wooden-table-eb26eV-ys_k" target="_blank">Unsplash - Red Tomatoes</a></li>
+                  <li><a href="https://unsplash.com/photos/a-bowl-of-food-on-a-wooden-board-DqnkZIUL3e4" target="_blank">Unsplash - Bowl of Food</a></li>
+                  <li><a href="https://unsplash.com/photos/a-person-holding-a-potted-plant-in-their-hand-CZxW-jwXZy4" target="_blank">Unsplash - Potted Plant</a></li>
+                  <li><a href="https://unsplash.com/photos/a-white-plate-topped-with-a-salad-and-a-fork-jvuBvIaWfgo" target="_blank">Unsplash - Salad Plate</a></li>
+                  <li><a href="https://unsplash.com/photos/sliced-pizza-on-brown-wooden-table-FRObR62TyKk" target="_blank">Unsplash - Sliced Pizza</a></li>
+                  <li><a href="https://unsplash.com/photos/cauliflower-wings-/FRObR62TyKk" target="_blank">Unsplash - Cauliflower Wings</a></li>
+                  <li><a href="https://unsplash.com/photos/green-salad-on-a-black-bowl-bBzjWthTqb8" target="_blank">Unsplash - Green Salad</a></li>
+                  <li><a href="https://unsplash.com/photos/pizza-with-tomato-and-green-leaves-on-white-ceramic-plate-Oxb84ENcFfU" target="_blank">Unsplash - Pizza with Tomato</a></li>
+                  <li><a href="https://unsplash.com/photos/clear-drinking-glass-with-brown-liquid-ZjlCh4FUApI" target="_blank">Unsplash - Brown Liquid Drink</a></li>
+                  <li><a href="https://unsplash.com/photos/two-foods-on-ceramic-plates-jofRmhSSqQo" target="_blank">Unsplash - Two Foods on Plates</a></li>
+                  <li><a href="https://unsplash.com/photos/two-plates-of-food-on-a-wooden-table-CKMDpk_6UxQ" target="_blank">Unsplash - Two Plates of Food</a></li>
+                  <li><a href="https://unsplash.com/photos/green-soup-in-white-ceramic-bowl-9ND-qkGs1_8" target="_blank">Unsplash - Green Soup</a></li>
+                  <li><a href="https://unsplash.com/photos/a-person-holding-a-large-hamburger-in-their-hand---EX4HNwFlA" target="_blank">Unsplash - Hamburger</a></li>
+                  <li><a href="https://unsplash.com/photos/grilled-breads-on-plate-Q-AUYsdKdww" target="_blank">Unsplash - Grilled Breads</a></li>
+                  <li><a href="https://unsplash.com/photos/white-ceramic-bowl-with-noodles-klAwNfxM9-g" target="_blank">Unsplash - Noodles Bowl</a></li>
+                  <li><a href="https://unsplash.com/photos/a-bowl-of-macaroni-and-cheese-Vkx_ZpQwQgE" target="_blank">Unsplash - Macaroni and Cheese</a></li>
+                  <li><a href="https://unsplash.com/photos/stainless-steel-fork-on-red-sauce-OWVF8-s-RYs" target="_blank">Unsplash - Red Sauce</a></li>
+                  <li><a href="https://unsplash.com/photos/egg-sandwich-on-white-ceramic-plate-iU26ZSJh9yw" target="_blank">Unsplash - Egg Sandwich</a></li>
+                  <li><a href="https://unsplash.com/photos/a-spoon-in-a-bowl-of-food-4Yg6pSXwkZI" target="_blank">Unsplash - Spoon in Food Bowl</a></li>
+                  <li><a href="https://unsplash.com/photos/a-plate-of-salad-on-a-wooden-table-5TsmPn4T76o" target="_blank">Unsplash - Salad on Table</a></li>
+                  <li><a href="https://unsplash.com/photos/white-ceramic-square-plate-with-vegetable-salad-C3l2vZ_OAfo" target="_blank">Unsplash - Vegetable Salad</a></li>
+                  <li><a href="https://unsplash.com/photos/white-and-brown-cake-on-white-ceramic-plate-9ccWRrTcJms" target="_blank">Unsplash - Cake</a></li>
+                  <li><a href="https://unsplash.com/photos/chocolate-cake-with-white-icing-on-white-ceramic-plate-dKT6Q7q2UKs" target="_blank">Unsplash - Chocolate Cake</a></li>
+                  <li><a href="https://unsplash.com/photos/brown-and-white-pastry-on-black-plate-G3P9saCze-M" target="_blank">Unsplash - Pastry</a></li>
+                  <li><a href="https://unsplash.com/photos/dessert-with-sliced-fruits-at-table-KRPHjSkn5Lw" target="_blank">Unsplash - Fruit Dessert</a></li>
+                  <li><a href="https://unsplash.com/photos/strawberry-shake-in-drinking-glass-bHdCYVTxB1I" target="_blank">Unsplash - Strawberry Shake</a></li>
+                  <li><a href="https://unsplash.com/photos/green-liquid-in-clear-drinking-glass-WaUDrRuxYWk" target="_blank">Unsplash - Green Liquid Drink</a></li>
+                  <li><a href="https://unsplash.com/photos/liquid-in-clear-plastic-cup-mMI5sdLFoHM" target="_blank">Unsplash - Liquid in Cup</a></li>
+                  <li><a href="https://unsplash.com/photos/clear-drinking-glass-with-brown-liquid-IxEz3DOIEGs" target="_blank">Unsplash - Brown Liquid Glass</a></li>
+                  <li><a href="https://unsplash.com/photos/clear-drinking-glass-with-brown-liquid-CCowelQ2pLw" target="_blank">Unsplash - Brown Liquid Glass 2</a></li>
+                  <li><a href="https://unsplash.com/photos/pile-of-leafed-plants-0AgtPoAARtE" target="_blank">Unsplash - Leafed Plants</a></li>
+                  <li><a href="https://unsplash.com/photos/green-grass-field-and-trees-CUWC-6MRcNg" target="_blank">Unsplash - Grass Field</a></li>
+                  <li><a href="https://unsplash.com/photos/white-rose-bouquet-in-green-plastic-container-jfhFJirnwcE" target="_blank">Unsplash - Rose Bouquet</a></li>
+                  <li><a href="https://unsplash.com/photos/a-wind-turbine-in-the-middle-of-a-desert-wRwo_uLMM6o" target="_blank">Unsplash - Wind Turbine</a></li>
+                  <li><a href="https://unsplash.com/photos/a-sign-on-the-side-of-a-building-advertising-giving-back-LZ8NzZrByts" target="_blank">Unsplash - Giving Back Sign</a></li>
+                  <li><a href="https://unsplash.com/photos/white-and-blue-solar-panels-hxUcl0nUsIY" target="_blank">Unsplash - Solar Panels</a></li>
+                  <li><a href="https://images.unsplash.com/photo-1605000797499-95a51c5269ae" target="_blank">Unsplash - Harvesting</a></li>
+                  <li><a href="https://images.unsplash.com/photo-1669909593266-3fc8ff399fde" target="_blank">Unsplash - Wash Peel Vegetables</a></li>
+                  <li><a href="https://cdn.shopify.com/s/files/1/0586/2193/files/plating_mobile.png?v=1679254227" target="_blank">Shopify - Plating Mobile</a></li>
+                </ul>
+              </div>
+              <!-- Information References Subsection -->
+              <div class="references-subsection">
+                <h3 class="references-subheader">Information References</h3>
+                <ul class="references-list">
+                  <li><a href="https://restaurant.org/education-and-resources/learning-center/business-operations/sustainability/" target="_blank">Restaurant.org - Sustainability</a></li>
+                  <li><a href="https://www.clearcogs.com/blog/the-definitive-guide-to-restaurant-food-prep/" target="_blank">ClearCogs - Restaurant Food Prep Guide</a></li>
+                  <li><a href="https://www.gobble.com/blog/how-to-select-fresh-ingredients/?srsltid=AfmBOoplDAXUEDPgWgzPYHSUuZ5wtJk_0LxQjTnCGIvDwSvTfEcAJlN_" target="_blank">Gobble - Selecting Fresh Ingredients</a></li>
+                  <li><a href="https://www.hitchcockfarms.com/blog/farm-to-table-movement" target="_blank">Hitchcock Farms - Farm-to-Table Movement</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Second Box: Documentation -->
+            <div class="info-box">
+              <h2 class="info-box-title">Documentation</h2>
+              <p class="section-text" id="farmtext">
+                The Green Canvas acknowledges the collaborative effort that has gone into creating our brand identity and culinary approach. Our menu design, preparation techniques, and sustainability practices have been developed through extensive research and collaboration with industry experts.
+              </p>
+              <p class="section-text" id="farmtext">
+                All content, images, and branding elements on this website are the intellectual property of The Green Canvas Restaurant Group, LLC © 2025. Any unauthorized reproduction or distribution of these materials is strictly prohibited without prior written consent.
+              </p>
+              <p class="section-text" id="farmtext">
+                Our development timeline began in early 2023 with initial concept brainstorming, followed by menu testing in mid-2024, and culminated in the website launch in April 2025. This process involved chefs, designers, and sustainability consultants working together to ensure every detail aligns with our farm-to-table ethos.
+              </p>
+              <p class="section-text" id="farmtext">
+                We protect our intellectual property through copyright registration with the U.S. Copyright Office and maintain detailed logs of all creative contributions, ensuring proper attribution and legal compliance across our operations.
+              </p>
+              <div class="btn-container">
+                <button class="info-btn" onclick="scrollToSection('work-log')">Work Log</button>
+                <button class="info-btn" onclick="scrollToSection('copyright-log')">Copyright Log</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="arrow" id="arrow1">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
+
+      <!-- Work Log Section -->
+      <<section id="work-log" class="logs-section">
+        <div class="log-container">
+          <h2 class="log-title">Work Log</h2>
+          <div class="log-content">
+            <p class="section-text">
+              This section contains documentation of the development process, design decisions, and collaborative efforts that have shaped The Green Canvas restaurant concept and brand identity.
+            </p>
+            <!-- Single Image for Work Log -->
+            <img src="IMG_5093.jpg" alt="Work Log Documentation" class="log-image" onerror="this.src='placeholder.jpg'; this.alt='Image not available';">
+            <p class="section-text">
+              Each entry in our work log includes date, contributors, tasks completed, challenges encountered, and solutions implemented to create an authentic farm-to-table dining experience.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Copyright Log Section -->
+      <<section id="copyright-log" class="logs-section">
+        <div class="log-container">
+          <h2 class="log-title">Copyright Log</h2>
+          <div class="log-content">
+            <p class="section-text">
+              This section documents all original creative work, licensed materials, and intellectual property comprising The Green Canvas brand identity, website, and marketing materials.
+            </p>
+            <!-- Single Image for Copyright Log -->
+            <img src="IMG_5094.jpg" alt="Copyright Log Documentation" class="log-image" onerror="this.src='placeholder.jpg'; this.alt='Image not available';">
+            <p class="section-text">
+              Our copyright log includes attribution for all creative contributors, license information for third-party assets, and registration dates for original works created for The Green Canvas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
+      <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+    </a>
+
+    <footer class="footer section has-bg-image text-center" style="background-image: url('footer-bg.jpg')">
+      <div class="container">
+        <div class="footer-top grid-list">
+          <div class="footer-brand has-before has-after">
+            <address class="body-4">
+              Restaurant St, Delicious City, Awesome Town 9578, NJ
+            </address>
+            <a href="mailto:booking@grilli.com" class="body-4 contact-link">booking@thegreencanvas.com</a>
+            <a href="tel:+88123123456" class="body-4 contact-link">Booking Request : +1 987 765 4321</a>
+            <p class="body-4">
+              Open : 10:00 am - 10:00 pm
+            </p>
+            <p class="title-1">Get News & Offers</p>
+            <p class="label-1">
+              Subscribe us & Get <span class="span">25% Off.</span>
+            </p>
+            <form action="" class="input-wrapper">
+              <div class="icon-wrapper">
+                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+                <input type="email" name="email_address" placeholder="Your email" autocomplete="off" class="input-field">
+              </div>
+              <button type="submit" class="btn btn-secondary">
+                <span class="text text-1">Subscribe</span>
+                <span class="text text-2" aria-hidden="true">Subscribe</span>
+              </button>
+            </form>
+          </div>
+          <ul class="footer-list">
+            <li>
+              <a href="main.html" class="label-2 footer-link hover-underline">Home</a>
+            </li>
+            <li>
+              <a href="aboutus.html" class="label-2 footer-link hover-underline">About Us</a>
+            </li>
+            <li>
+              <a href="Newmenu1.html#menu" class="label-2 footer-link hover-underline">Menu</a>
+            </li>
+            <li>
+              <a href="preparation.html" class="label-2 footer-link hover-underline">Preparation</a>
+            </li>
+            <li>
+              <a href="sustainability.html" class="label-2 footer-link hover-underline">Sustainability</a>
+            </li>
+            <li>
+              <a href="farmtotable.html" class="label-2 footer-link hover-underline">Farm-to-Table</a>
+            </li>
+            <li>
+              <a href="Contactus.html" class="label-2 footer-link hover-underline">Contact Us</a>
+            </li>
+            <li>
+                <a href="references.html" class="label-2 footer-link hover-underline">References</a>
+              </li>
+          </ul>
+          <ul class="footer-list">
+            <li>
+              <a href="https://www.facebook.com" class="label-2 footer-link hover-underline" target="_blank">Facebook</a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com" class="label-2 footer-link hover-underline" target="_blank">Instagram</a>
+            </li>
+            <li>
+              <a href="https://twitter.com" class="label-2 footer-link hover-underline" target="_blank">X (Twitter)</a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com" class="label-2 footer-link hover-underline" target="_blank">Youtube</a>
+            </li>
+            <li>
+              <a href="https://www.google.com/maps" class="label-2 footer-link hover-underline" target="_blank">Google Map</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-bottom">
+          <p class="copyright">
+            © The Green Canvas All Rights Reserved
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        if (timelineItems.length > 0) {
+          const checkScroll = function() {
+            const triggerBottom = window.innerHeight * 0.8;
+            timelineItems.forEach(item => {
+              const itemTop = item.getBoundingClientRect().top;
+              if (itemTop < triggerBottom) {
+                item.classList.add('active');
+              } else {
+                item.classList.remove('active');
+              }
+            });
+          };
+          window.addEventListener('scroll', checkScroll);
+          checkScroll(); // Initial check
+        }
+      });
+
+      // Function to smoothly scroll to sections
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          window.scrollTo({
+            top: section.offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }
+    </script>
+
+    <!-- custom js link -->
+    <script src="script.js"></script>
+
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
